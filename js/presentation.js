@@ -8,6 +8,6 @@ $(document).ready(function(){
     prevNextClass: 'nav-prev-next', //Class to put on the unordered list that contains the previous and next links
     prevText: 'Previous', //Text for the Previous link
     nextText: 'Next', //Text for the Next link
-    transition: 'fade'
+    transition: 'slide'
   });
 });

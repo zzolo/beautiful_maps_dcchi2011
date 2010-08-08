@@ -4,6 +4,9 @@
     <title>Drupal OpenLayers Presentation (DrupalCon Copenhagen 2010)</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <link href="styles/presentation.css" type="text/css" rel="stylesheet" media="Screen,projection" />
+    <link href="js/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="js/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" type="text/css" />
+    <link href="js/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div id="header">
@@ -14,15 +17,24 @@
     
     <div id="content">
       <div id="slides">
+        <div class="slide title-page">
+          <h2>Mapping in Drupal with OpenLayers</h2>
+        </div>
+        
         <div class="slide">
-          <h2>Welcome</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <ul>
-           <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</li>
-           <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-           <li>Here is a short list item</li>
-          </ul>
-      </div>
+          <h2>Code Example</h2>
+          <pre class="brush: js; highlight: [2, 3]">
+function helloSyntaxHighlighter()
+{
+	return "hi!";
+}
+          </pre>
+          <pre class="brush: php">
+
+  $var = 'hello';
+
+          </pre>
+        </div>
     </div>
     
     <div id="footer">
@@ -32,8 +44,20 @@
     </div>
     
     <script type="text/javascript" src="js/jquery.js"></script>
-    <!-- Presentation script from: http://github.com/davist11/jQuery-Presentation -->
+    <!-- Presentation script: http://github.com/davist11/jQuery-Presentation -->
     <script type="text/javascript" src="js/jquery.presentation.js"></script>
     <script type="text/javascript" src="js/presentation.js"></script>
+    <!-- Code highlighter: http://alexgorbatchev.com/SyntaxHighlighter/ -->
+    <script type="text/javascript" src="js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="js/syntaxhighlighter/scripts/shAutoloader.js"></script>
+    <script type="text/javascript">
+      SyntaxHighlighter.autoloader(
+        'js jscript javascript  js/syntaxhighlighter/scripts/shBrushJScript.js',
+        'php drupal             js/syntaxhighlighter/scripts/shBrushPhp.js'
+      );
+      SyntaxHighlighter.defaults['tab-size'] = 2;
+      SyntaxHighlighter.defaults['toolbar'] = false;
+      SyntaxHighlighter.all();
+    </script>
   </body>
 </html>

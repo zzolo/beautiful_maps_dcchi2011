@@ -1,6 +1,7 @@
 Presentation for Mapping with OpenLayers in Drupal for DrupalCon Copenhagen 2010
 http://cph2010.drupal.org/sessions/mapping-drupal-openlayers
 
+
 Authors:
 Alan Palazzolo
 Thomas Turnbull
@@ -9,5 +10,6 @@ Thomas Turnbull
 Libraries used:
 jQuery: http://jquery.com
 Presentation: http://github.com/davist11/jQuery-Presentation
+Syntax Highlighter: http://alexgorbatchev.com/SyntaxHighlighter/
 
 

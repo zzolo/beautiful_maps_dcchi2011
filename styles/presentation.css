@@ -97,3 +97,10 @@ body {
 	/* @end */
 
 /* @end */
+
+/* ADDING */
+.title-page h2 {
+  text-align: center;
+  margin-top: 1em;
+  font-size: 3em;
+}
