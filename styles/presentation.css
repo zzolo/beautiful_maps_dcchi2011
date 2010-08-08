@@ -29,9 +29,10 @@ blockquote, q {	quotes: "" ""; }
 }
 .amp { font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif; font-size: 1.1em; font-style: italic; font-weight: normal; }
 body {
-  background: #1a1f1e url(../images/structure/bg-body.png);
+  background-color: #1a1f1e;
   color: #FFFFFF;
 	font: 24px/36px Helvetica, Arial, Sans-Serif;
+  line-height: 1em;
 }
 
 /**
@@ -40,7 +41,12 @@ body {
 h1, h2, h3, h4, h5, h6 { font-weight: normal; }
 h1 { font-size: 18px; line-height: 18px; }
 h2, h3, h4, h5 { font-family: Georgia, "Times New Roman", Times, serif; }
-h2 { color: #00FF33; font-size: 60px; line-height: 60px; }
+h2 {
+  color: #00FF33; 
+  font-size: 3em;
+  margin-bottom: .5em;
+  line-height: 1em;
+}
 h3 {
   color: #CCFF00;
   font-size: 2em;
@@ -51,9 +57,10 @@ h3 {
  * Links
  */
 a, a:link { text-decoration: underline; }
-a:visited {}
 a:hover { text-decoration: none; }
-a:active {}
+a:active, a, a:visited, a:hover {
+  color: #FF3300;
+}
 	
 /**
  * Common
@@ -69,7 +76,7 @@ li:last-child { border-bottom: none; padding-bottom: 0; }
  */
 #header, #footer {
   background: #444444;
-  color: #FFFFFF;
+  color: #BBBBBB;
   font-size: 14px; 
   line-height: 14px;
   position: fixed;
@@ -113,7 +120,8 @@ label { font-weight: bold; }
   text-align: center;
 }
 .title-page h2 {
-  margin-top: 1em;
+  margin-top: .5em;
+  margin-bottom: 1em;
   font-size: 3em;
 }
 .authors {
