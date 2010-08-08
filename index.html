@@ -154,7 +154,7 @@ function helloSyntaxHighlighter()
             <li>Developers: <a href="http://drupal.org/user/147331">zzolo</a>, <a href="http://drupal.org/user/12664">tmcw</a>, <a href="http://drupal.org/user/47098">phayes</a>, <a href="http://drupal.org/user/781486">strk</a>, and more</li>
             <li>Presentation by: <a href="http://drupal.org/user/147331">zzolo</a> and <a href="http://drupal.org/user/125573">tom_o_t</a></li>
             <li>Images: (none)</li>
-            <li>Technology used: <a href="">jQuery</a>, <a href=" http://github.com/davist11/jQuery-Presentation">jQuery Presentation</a>, <a href="http://alexgorbatchev.com/SyntaxHighlighter/">SyntaxHighlighter</a></li>
+            <li>Technology used: <a href="">jQuery</a>, <a href=" http://github.com/davist11/jQuery-Presentation">jQuery Presentation</a>, <a href="http://alexgorbatchev.com/SyntaxHighlighter/">SyntaxHighlighter</a>, and <a href="http://github.com/malsup/corner">Corner</a></li>
             <li>Presentation source on <a href="http://github.com/zzolo/openlayers-presentation-dccph2010">GitHub</a></li>
           </ul>
         </div>
@@ -170,17 +170,12 @@ function helloSyntaxHighlighter()
     <!-- Presentation script: http://github.com/davist11/jQuery-Presentation -->
     <script type="text/javascript" src="js/jquery.presentation.js"></script>
     <script type="text/javascript" src="js/presentation.js"></script>
+    <!-- jQuery rounded corner plugin: http://www.malsup.com/jquery/corner/ -->
+    <script type="text/javascript" src="js/jquery.corner.js"></script>
+    <script type="text/javascript" src="js/rounded.js"></script>
     <!-- Code highlighter: http://alexgorbatchev.com/SyntaxHighlighter/ -->
     <script type="text/javascript" src="js/syntaxhighlighter/scripts/shCore.js"></script>
     <script type="text/javascript" src="js/syntaxhighlighter/scripts/shAutoloader.js"></script>
-    <script type="text/javascript">
-      SyntaxHighlighter.autoloader(
-        'js jscript javascript  js/syntaxhighlighter/scripts/shBrushJScript.js',
-        'php drupal             js/syntaxhighlighter/scripts/shBrushPhp.js'
-      );
-      SyntaxHighlighter.defaults['tab-size'] = 2;
-      SyntaxHighlighter.defaults['toolbar'] = false;
-      SyntaxHighlighter.all();
-    </script>
+    <script type="text/javascript" src="js/syntax.js"></script>
   </body>
 </html>
