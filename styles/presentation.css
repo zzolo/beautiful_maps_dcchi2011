@@ -116,17 +116,26 @@ label { font-weight: bold; }
 /**
  * Title page
  */
-.title-page {
-  text-align: center;
-}
 .title-page h2 {
   margin-top: .5em;
-  margin-bottom: 1em;
+  margin-bottom: 0;
   font-size: 3em;
+  text-align: center;
+}
+.title-page h3 {
+  text-align: center;
 }
 .authors {
-  margin-top: 4em;
+  margin-top: 13em;
+  margin-bottom: 0;
   color: #BBBBBB;
+}
+.title-page {
+  background-color: transparent;
+  background-image: url("../images/openlayers_monster-600.png");
+  background-repeat: no-repeat;
+  background-position: 475px 240px;
+  padding-bottom: 50px;
 }
 
 /**
