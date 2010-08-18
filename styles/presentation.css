@@ -132,15 +132,19 @@ label { font-weight: bold; }
 /**
  * Demo link
  */
-a.demo-link {
+.demo-links {
+  float: right;
+  margin-right: -80px;
+}
+.demo-links a {
   float: right;
   display: block;
-  width: 3em;
+  width: 3.3em;
   text-decoration: none;
   background-color: #004DFF;
   color: #FFFFFF;
   text-align: center;
   font-size: .7em;
   padding: .12em;
-  margin-right: -80px;
+  margin-left: .2em;
 }
