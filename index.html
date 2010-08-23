@@ -18,40 +18,55 @@
     
     <div id="content">
       <div id="slides">
+      
+        <!-- Alan -->
+        <!-- Not advancded, for beginners. -->
+        <!-- Who has the module before? -->
+        <!-- Who has done web mapping stuff before? -->
+        <!-- Who has used GMap before? -->
+        <!-- Who has come from a GIS? -->
         <div class="slide title-page">
           <h2>Mapping in Drupal with OpenLayers</h2>
           <h3>Making your data more tangible.</h3>
           <p class="authors">by Alan Palazzolo and Thomas Turnbull</p>
         </div>
         
+        <!-- Thomas -->
         <div class="slide">
           <h2>Why Map?</h2>
           <ul>
             <li>Maps provide a unique perspective.</li>
-            <li>Users are familiar with it.</li>
+            <li>Users are familiar with it. (i.e. Google Maps)</li>
             <li>Drupal is a great vehicle for data.</li>
           </ul>
         </div>
         
+        <!-- Thomas -->
         <div class="slide">
           <h2>What is OpenLayers?</h2>
+          <div class="demo-links">
+            <a title="View Basic Map" href="../ol_dccph2010_demo/map/basic">Map</a>
+          </div>
           <ul>
-            <li>Open source Javascript library.</li>
+            <li>Open-source, third-party, Javascript library.</li>
             <li>Interface to view map data.</li>
             <li><a href="http://openlayers.org/">openlayers.org</a></li>
+            <li>Project of OSGeo.</li>
           </ul>
         </div>
         
+        <!-- Thomas -->
         <div class="slide">
           <h2>Drupal and OpenLayers</h2>
           <ul>
             <li>Provides integration between Drupal data and OpenLayers maps.</li>
-            <li>Utilizes CTools plugin architecture.</li>
             <li>Integrated with CCK, Views, Filters.</li>
+            <li>Utilizes CTools plugin architecture and provides exportables.</li>
             <li><a href="http://drupal.org/project/openlayers">drupal.org/project/openlayers</a></li>
           </ul>
         </div>
         
+        <!-- Alan -->
         <div class="slide">
           <div class="demo-links">
             <a title="View Basic Map" href="../ol_dccph2010_demo/map/basic">Map</a>
@@ -67,6 +82,7 @@
           </ul>
         </div>
         
+        <!-- Alan -->
         <div class="slide">
           <div class="demo-links">
             <a title="View GeoRSS Map" href="../ol_dccph2010_demo/map/georss">Map</a>
@@ -82,6 +98,7 @@
           </ul>
         </div>
         
+        <!-- Alan -->
         <div class="slide">
           <div class="demo-links">
             <a title="View Airport Node" href="../ol_dccph2010_demo/content/copenhagen-airport-cph">View</a>
@@ -97,6 +114,7 @@
           </ul>
         </div>
         
+        <!-- Alan -->
         <div class="slide">
           <div class="demo-links">
             <a title="View Airport Node" href="../ol_dccph2010_demo/map/behaviors">Map</a>
@@ -112,6 +130,7 @@
           </ul>
         </div>
         
+        <!-- Thomas -->
         <div class="slide">
           <div class="demo-links">
             <a title="Add POI Node" href="../ol_dccph2010_demo/node/add/ol-demo-poi">Add</a>
@@ -125,6 +144,7 @@
           </ul>
         </div>
         
+        <!-- Thomas -->
         <div class="slide">
           <div class="demo-links">
             <a title="View Data Overlay Map" href="../ol_dccph2010_demo/map/data_overlays">Map</a>
@@ -139,9 +159,11 @@
           </ul>
         </div>
         
+        <!-- Thomas -->
         <div class="slide">
           <div class="demo-links">
             <a title="Edit Data Overlay Views" href="../ol_dccph2010_demo/admin/build/views/edit/ol_demo_map_displays">View</a>
+            <a title="Show a Map" href="../ol_dccph2010_demo/map/data_overlays">Map</a>
           </div>
           <h2>Views (Map Displays)</h2>
           <ul>
@@ -149,23 +171,142 @@
           </ul>
         </div>
         
+        <!-- Alan -->
         <div class="slide">
           <h2>Architecture</h2>
           <ul>
             <li>Leveraging CTools plugin architecture.</li>
             <li>Exportable paradigm (like Views and Panels).</li>
-            <li>Limit Javascript.</li>
+            <li>Automatic Features support.</li>
+            <li>Limit custom Javascript.</li>
+            <li>Handbook pages and API docs in module.</li>
+          </ul>
+        </div>
+        
+        <!-- Thomas -->
+        <div class="slide">
+          <div class="demo-links">
+            <a title="OpenLayers Geocoder" href="../ol_dccph2010_demo/node/add/geocoder-example">OG</a>
+            <a title="GeoTaxonomy" href="../ol_dccph2010_demo/admin/content/taxonomy/edit/term/1">GT</a>
+          </div>
+          <h2>Related Modules</h2>
+          <ul>
+            <li>GeoTaxonomy</li>
+            <li>OpenLayers Geocoder</li>
+            <li>OpenLayers Proximity</li>
+            <li>Mapbox</li>
           </ul>
         </div>
         
         <div class="slide">
-          <h2>Code Example</h2>
-          <pre class="brush: js; highlight: [2, 3]">
-function helloSyntaxHighlighter()
-{
-	return "hi!";
+          <h2>Map Presets</h2>
+          <pre class="brush: php">
+$map = new stdClass();
+$map->api_version = 1;
+$map->name = 'example';
+$map->title = t('Example Map');
+$map->description = t('Description ...');
+$map->data = array(
+  'projection' => '900913',
+  'width' => 'auto',
+  'height' => '400px',
+  'default_layer' => 'osm_mapnik',
+  'center' => array(
+    'initial' => array(
+      'centerpoint' => '0,0',
+      'zoom' => '2'
+    )
+  ),
+  'displayProjection' => '4326',
+  'maxExtent' => openlayers_get_extent('4326'),
+  'behaviors' => array(
+    'openlayers_behavior_panzoombar' => array(),
+    'openlayers_behavior_layerswitcher' => array(),
+    'openlayers_behavior_attribution' => array(),
+    'openlayers_behavior_keyboarddefaults' => array(),
+    'openlayers_behavior_navigation' => array(),
+  ),
+  'layers' => array(
+    'osm_mapnik' => 'osm_mapnik',
+  )
+);
+          </pre>
+        </div>
+        
+        <div class="slide">
+          <h2>Layer Types (plugin)</h2>
+          <pre class="brush: php">
+class openlayers_layer_type_example extends openlayers_layer_type {
+  function __construct($layer = array(), $map = array()) {
+    parent::__construct($layer, $map);
+    $this->data += $this->options_init();
+  }
+  
+  function options_init() {
+    // Array of options
+  }
+
+  function options_form() {
+    // Form array for options
+  }
+
+  function render(&$map) {
+    drupal_add_js(drupal_get_path('module', 'openlayers')
+      . '/includes/layer_types/js/example.js');
+    return $this->options;
+  }
 }
           </pre>
+        </div>
+        
+        <div class="slide">
+          <h2>Layer Types (Javascript)</h2>
+          <pre class="brush: js; highlight: [7]">
+Drupal.openlayers.layer.example = function(title, map, options) {
+  var styleMap = Drupal.openlayers.getStyleMap(map, options.drupalID);
+  if (options.maxExtent !== undefined) {
+    options.maxExtent = new OpenLayers.Bounds.fromArray(options.maxExtent);
+  }
+  options.projection = 'EPSG:' + options.projection;
+  var layer = new OpenLayers.Layer.OSM(title, options.base_url, options);
+  layer.styleMap = styleMap;
+  return layer;
+};
+          </pre>
+        </div>
+        
+        <div class="slide">
+          <h2>Behaviors (Plugin)</h2>
+          <pre class="brush: php; highlight: [21]">
+class openlayers_behavior_fullscreen extends openlayers_behavior {
+  function options_init() {
+    return array(
+      'activated' => FALSE
+    );
+  }
+
+  function options_form($defaults) {
+    return array(
+      'activated' => array(
+        '#title' => t('Initially activated'),
+        '#type' => 'checkbox',
+        '#description' => t('Select to be in fullscreen by default.'),
+        '#default_value' => isset($defaults['activated']) ?  $defaults['activated'] : FALSE
+      )
+    );
+  }
+
+  function render(&$map) {
+    drupal_add_css(drupal_get_path('module', 'openlayers') . '/includes/behaviors/js/openlayers_behavior_fullscreen.css');
+    drupal_add_js(drupal_get_path('module', 'openlayers') . '/includes/behaviors/js/openlayers_behavior_fullscreen.js');
+    return $this->options;
+  }
+}
+          </pre>
+        </div>
+        
+        <div class="slide">
+          <h2>Behaviors (Javascript)</h2>
           <pre class="brush: php">
 
   $var = 'hello';
@@ -203,7 +344,10 @@ function helloSyntaxHighlighter()
         </div>
         
         <div class="slide">
-          <h2>Drupal and Geo-Stuff BoF</h2>
+          <div class="demo-links">
+            <a title="Survey" href="outro.html">Survey</a>
+          </div>
+          <h2>Geo-Stuff BoF</h2>
           <ul>
             <li>Drupal and Place.</li>
             <li>Talk all about geo-related things and Drupal.</li>

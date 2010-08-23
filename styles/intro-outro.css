@@ -17,10 +17,15 @@ blockquote, q {	quotes: "" ""; }
 body {
   background-attachment: scroll;
   background-color: transparent;
-  background-image: url('../images/background-config-front.png');
   background-repeat: repeat;
   background-position: 0 0;
   color: #FFFFFF;
+}
+body.intro {
+  background-image: url('../images/background-config-front.png');
+}
+body.outro {
+  background-image: url('../images/background-evaluate.png');
 }
 
 h1 {
