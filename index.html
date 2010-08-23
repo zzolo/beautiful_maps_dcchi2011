@@ -307,10 +307,22 @@ class openlayers_behavior_fullscreen extends openlayers_behavior {
         
         <div class="slide">
           <h2>Behaviors (Javascript)</h2>
-          <pre class="brush: php">
-
-  $var = 'hello';
-
+          <pre class="brush: js; highlight: [7]">
+Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
+  var fullscreenPanel;
+  var data = $(context).data('openlayers');
+  if (data && data.map.behaviors['openlayers_behavior_fullscreen']) {
+    var opts = data.map.behaviors['openlayers_behavior_fullscreen'];
+    
+    // Create new panel control and add.
+    fullscreenPanel = new OpenLayers.Control.Panel(
+      {
+        displayClass: 'openlayers_behavior_fullscreen_button_panel'
+      }
+    );
+    data.openlayers.addControl(fullscreenPanel);
+  }
+}
           </pre>
         </div>
         
