@@ -157,3 +157,13 @@ label { font-weight: bold; }
   padding: .12em;
   margin-left: .2em;
 }
+
+/**
+ * Presenter
+ */
+.thomas, .alan {
+  color: #555555;
+  font-family: "Andale Mono";
+  margin-right: 4px;
+  font-size: .7em;
+}

@@ -25,7 +25,7 @@
         <!-- Who has done web mapping stuff before? -->
         <!-- Who has used GMap before? -->
         <!-- Who has come from a GIS? -->
-        <div class="slide title-page">
+        <div class="slide title-page alan">
           <h2>Mapping in Drupal with OpenLayers</h2>
           <h3>Making your data more tangible.</h3>
           <p class="authors">by Alan Palazzolo and Thomas Turnbull</p>
@@ -33,6 +33,9 @@
         
         <!-- Thomas -->
         <div class="slide">
+          <div class="demo-links">
+            <span class="thomas">t</span>
+          </div>
           <h2>Why Map?</h2>
           <ul>
             <li>Maps provide a unique perspective.</li>
@@ -44,6 +47,7 @@
         <!-- Thomas -->
         <div class="slide">
           <div class="demo-links">
+            <span class="thomas">t</span>
             <a title="View Example Map" href="../ol_dccph2010_demo/map/example_full">Map</a>
           </div>
           <h2>What is OpenLayers?</h2>
@@ -57,6 +61,9 @@
         
         <!-- Thomas -->
         <div class="slide">
+          <div class="demo-links">
+            <span class="thomas">t</span>
+          </div>
           <h2>Drupal and OpenLayers</h2>
           <ul>
             <li>Provides integration between Drupal data and OpenLayers maps.</li>
@@ -69,6 +76,7 @@
         <!-- Alan -->
         <div class="slide">
           <div class="demo-links">
+            <span class="alan">a</span>
             <a title="View Basic Map" href="../ol_dccph2010_demo/map/basic">Map</a>
             <a title="Edit Basic Map" href="../ol_dccph2010_demo/admin/build/openlayers/presets/ol_demo_map_basic/edit">Preset</a>
           </div>
@@ -85,6 +93,7 @@
         <!-- Alan -->
         <div class="slide">
           <div class="demo-links">
+            <span class="alan">a</span>
             <a title="View GeoRSS Map" href="../ol_dccph2010_demo/map/georss">Map</a>
             <a title="View GeoRSS Preset" href="../ol_dccph2010_demo/admin/build/openlayers/presets/ol_demo_georss_example/edit">Preset</a>
             <a title="Edit GeoRSS Layer" href="../ol_dccph2010_demo/admin/build/openlayers/layers/ol_demo_georss_dccph_example/edit">Layer</a>
@@ -101,6 +110,7 @@
         <!-- Alan -->
         <div class="slide">
           <div class="demo-links">
+            <span class="alan">a</span>
             <a title="View Airport Node" href="../ol_dccph2010_demo/content/copenhagen-airport-cph">View</a>
             <a title="Edit Airport Node Preset" href="../ol_dccph2010_demo/admin/build/openlayers/presets/ol_demo_map_input_display_airport/edit">Preset</a>
             <a title="Edit Airport Style" href="../ol_dccph2010_demo/admin/build/openlayers/styles/ol_demo_style_airport/edit">Style</a>
@@ -117,6 +127,7 @@
         <!-- Alan -->
         <div class="slide">
           <div class="demo-links">
+            <span class="alan">a</span>
             <a title="View Airport Node" href="../ol_dccph2010_demo/map/behaviors">Map</a>
             <a title="Edit Behaviors Preset" href="../ol_dccph2010_demo/admin/build/openlayers/presets/ol_demo_map_behaviors/edit">Preset</a>
           </div>
@@ -133,6 +144,7 @@
         <!-- Thomas -->
         <div class="slide">
           <div class="demo-links">
+            <span class="thomas">t</span>
             <a title="Add POI Node" href="../ol_dccph2010_demo/node/add/ol-demo-poi">Add</a>
             <a title="Edit Location Field" href="../ol_dccph2010_demo/admin/content/node-type/ol-demo-poi/fields/field_ol_demo_location">Field</a>
           </div>
@@ -147,6 +159,7 @@
         <!-- Thomas -->
         <div class="slide">
           <div class="demo-links">
+            <span class="thomas">t</span>
             <a title="View Data Overlay Map" href="../ol_dccph2010_demo/map/data_overlays">Map</a>
             <a title="Edit Data Overlay Preset" href="../ol_dccph2010_demo/admin/build/openlayers/presets/ol_demo_map_data_overlays/edit">Preset</a>
             <a title="Edit Data Overlay Views" href="../ol_dccph2010_demo/admin/build/views/edit/ol_demo_data_overlays">View</a>
@@ -162,6 +175,7 @@
         <!-- Thomas -->
         <div class="slide">
           <div class="demo-links">
+            <span class="thomas">t</span>
             <a title="Edit Data Overlay Views" href="../ol_dccph2010_demo/admin/build/views/edit/ol_demo_map_displays">View</a>
             <a title="Show a Map" href="../ol_dccph2010_demo/map/data_overlays">Map</a>
           </div>
@@ -173,6 +187,9 @@
         
         <!-- Alan -->
         <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
           <h2>Architecture</h2>
           <ul>
             <li>Leveraging CTools plugin architecture.</li>
@@ -185,6 +202,9 @@
         
         <!-- Alan -->
         <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
           <h2>Map Presets</h2>
           <pre class="brush: php">
 $map = new stdClass();
@@ -221,6 +241,9 @@ $map->data = array(
         
         <!-- Alan -->
         <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
           <h2>Layer Types (plugin)</h2>
           <pre class="brush: php">
 class openlayers_layer_type_example extends openlayers_layer_type {
@@ -248,6 +271,9 @@ class openlayers_layer_type_example extends openlayers_layer_type {
         
         <!-- Alan -->
         <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
           <h2>Layer Types (Javascript)</h2>
           <pre class="brush: js; highlight: [7]">
 Drupal.openlayers.layer.example = function(title, map, options) {
@@ -265,6 +291,9 @@ Drupal.openlayers.layer.example = function(title, map, options) {
         
         <!-- Alan -->
         <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
           <h2>Behaviors (Plugin)</h2>
           <pre class="brush: php; highlight: [21]">
 class openlayers_behavior_fullscreen extends openlayers_behavior {
@@ -296,6 +325,9 @@ class openlayers_behavior_fullscreen extends openlayers_behavior {
         
         <!-- Alan -->
         <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
           <h2>Behaviors (Javascript)</h2>
           <pre class="brush: js; highlight: [1]">
 Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
@@ -319,6 +351,7 @@ Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
         <!-- Thomas -->
         <div class="slide">
           <div class="demo-links">
+            <span class="thomas">t</span>
             <a title="OpenLayers Geocoder" href="../ol_dccph2010_demo/node/add/geocoder-example">OG</a>
             <a title="GeoTaxonomy" href="../ol_dccph2010_demo/admin/content/taxonomy/edit/term/1">GT</a>
           </div>
@@ -333,6 +366,9 @@ Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
         
         <!-- Alan -->
         <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
           <h2>Roadmap</h2>
           <ul>
             <li>Still alpha.</li>
@@ -343,6 +379,9 @@ Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
         
         <!-- Alan -->
         <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
           <h2>How You Can Help</h2>
           <ul>
             <li>Testing.</li>
@@ -353,6 +392,9 @@ Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
         
         <!-- Alan -->
         <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
           <h2>Credits</h2>
           <ul>
             <li>Developers: <a href="http://drupal.org/user/147331">zzolo</a>, <a href="http://drupal.org/user/12664">tmcw</a>, <a href="http://drupal.org/user/47098">phayes</a>, <a href="http://drupal.org/user/781486">strk</a>, and more</li>
@@ -366,6 +408,7 @@ Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
         <!-- Alan -->
         <div class="slide">
           <div class="demo-links">
+            <span class="alan">a</span>
             <a title="Survey" href="outro.html">Survey</a>
           </div>
           <h2>Geo-Stuff BoF</h2>
