@@ -43,10 +43,10 @@
         
         <!-- Thomas -->
         <div class="slide">
-          <h2>What is OpenLayers?</h2>
           <div class="demo-links">
-            <a title="View Basic Map" href="../ol_dccph2010_demo/map/basic">Map</a>
+            <a title="View Example Map" href="../ol_dccph2010_demo/map/example_full">Map</a>
           </div>
+          <h2>What is OpenLayers?</h2>
           <ul>
             <li>Open-source, third-party, Javascript library.</li>
             <li>Interface to view map data.</li>
@@ -153,8 +153,8 @@
           </div>
           <h2>Views (Data Overlays)</h2>
           <ul>
-            <li>Either Lat/Lon or WKT.</li>
-            <li>Leverage the power of Views.</li>
+            <li>Data handling of lat/lon, WKT, or bounding box.</li>
+            <li>Leverage the power of Views (filtering, arguments, etc).</li>
             <li>Multiple data overlays on single map.</li>
           </ul>
         </div>
@@ -183,21 +183,7 @@
           </ul>
         </div>
         
-        <!-- Thomas -->
-        <div class="slide">
-          <div class="demo-links">
-            <a title="OpenLayers Geocoder" href="../ol_dccph2010_demo/node/add/geocoder-example">OG</a>
-            <a title="GeoTaxonomy" href="../ol_dccph2010_demo/admin/content/taxonomy/edit/term/1">GT</a>
-          </div>
-          <h2>Related Modules</h2>
-          <ul>
-            <li>GeoTaxonomy</li>
-            <li>OpenLayers Geocoder</li>
-            <li>OpenLayers Proximity</li>
-            <li>Mapbox</li>
-          </ul>
-        </div>
-        
+        <!-- Alan -->
         <div class="slide">
           <h2>Map Presets</h2>
           <pre class="brush: php">
@@ -233,6 +219,7 @@ $map->data = array(
           </pre>
         </div>
         
+        <!-- Alan -->
         <div class="slide">
           <h2>Layer Types (plugin)</h2>
           <pre class="brush: php">
@@ -259,6 +246,7 @@ class openlayers_layer_type_example extends openlayers_layer_type {
           </pre>
         </div>
         
+        <!-- Alan -->
         <div class="slide">
           <h2>Layer Types (Javascript)</h2>
           <pre class="brush: js; highlight: [7]">
@@ -275,6 +263,7 @@ Drupal.openlayers.layer.example = function(title, map, options) {
           </pre>
         </div>
         
+        <!-- Alan -->
         <div class="slide">
           <h2>Behaviors (Plugin)</h2>
           <pre class="brush: php; highlight: [21]">
@@ -305,9 +294,10 @@ class openlayers_behavior_fullscreen extends openlayers_behavior {
           </pre>
         </div>
         
+        <!-- Alan -->
         <div class="slide">
           <h2>Behaviors (Javascript)</h2>
-          <pre class="brush: js; highlight: [7]">
+          <pre class="brush: js; highlight: [1]">
 Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
   var fullscreenPanel;
   var data = $(context).data('openlayers');
@@ -326,6 +316,22 @@ Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
           </pre>
         </div>
         
+        <!-- Thomas -->
+        <div class="slide">
+          <div class="demo-links">
+            <a title="OpenLayers Geocoder" href="../ol_dccph2010_demo/node/add/geocoder-example">OG</a>
+            <a title="GeoTaxonomy" href="../ol_dccph2010_demo/admin/content/taxonomy/edit/term/1">GT</a>
+          </div>
+          <h2>Related Modules</h2>
+          <ul>
+            <li>GeoTaxonomy</li>
+            <li>OpenLayers Geocoder</li>
+            <li>OpenLayers Proximity</li>
+            <li>Mapbox</li>
+          </ul>
+        </div>
+        
+        <!-- Alan -->
         <div class="slide">
           <h2>Roadmap</h2>
           <ul>
@@ -335,6 +341,7 @@ Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
           </ul>
         </div>
         
+        <!-- Alan -->
         <div class="slide">
           <h2>How You Can Help</h2>
           <ul>
@@ -344,6 +351,7 @@ Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
           </ul>
         </div>
         
+        <!-- Alan -->
         <div class="slide">
           <h2>Credits</h2>
           <ul>
@@ -355,6 +363,7 @@ Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
           </ul>
         </div>
         
+        <!-- Alan -->
         <div class="slide">
           <div class="demo-links">
             <a title="Survey" href="outro.html">Survey</a>
