@@ -61,6 +61,10 @@ a:hover { text-decoration: none; }
 a:active, a, a:visited, a:hover {
   color: #FF3300;
 }
+h1 a,
+h1 a:active, h1 a, a:visited, h1 a:hover {
+  color: #BBBBBB;
+}
 	
 /**
  * Common
@@ -132,7 +136,7 @@ label { font-weight: bold; }
 }
 .title-page {
   background-color: transparent;
-  background-image: url("../images/openlayers_monster-600.png");
+  /* background-image: url("../images/openlayers_monster-600.png"); */
   background-repeat: no-repeat;
   background-position: 475px 240px;
   padding-bottom: 50px;
