@@ -1,5 +1,5 @@
-Presentation for Mapping with OpenLayers in Drupal for DrupalCon Copenhagen 2010
-http://cph2010.drupal.org/sessions/mapping-drupal-openlayers
+Presentation for Making Beautiful Maps in Drupal for DrupalCon Chicago 2011
+http://chicago2011.drupal.org/sessions/making-beautiful-maps
 
 
 Resolution:
@@ -16,5 +16,8 @@ jQuery: http://jquery.com
 Presentation: http://github.com/davist11/jQuery-Presentation
 Syntax Highlighter: http://alexgorbatchev.com/SyntaxHighlighter/
 jQuery Corner: http://github.com/malsup/corner
+
+Forked from:
+https://github.com/zzolo/openlayers-presentation-dccph2010
 
 
