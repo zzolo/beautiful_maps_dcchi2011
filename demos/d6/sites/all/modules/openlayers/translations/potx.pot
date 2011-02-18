@@ -1,0 +1,1492 @@
+# $Id: potx.pot,v 1.1.2.1 2009/12/26 23:30:32 zzolo Exp $
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  openlayers.module,v 1.67.2.16 2009/10/06 01:36:11 zzolo
+#  openlayers.api.php,v 1.1.2.5 2009/09/14 00:39:51 zzolo
+#  openlayers_presets_ui.ui.inc,v 1.3.2.13 2009/12/09 21:52:30 zzolo
+#  openlayers_test.module,v 1.1.2.3 2009/12/02 23:08:57 zzolo
+#  openlayers.info,v 1.5.2.1 2009/09/28 17:16:10 phayes
+#  modules/openlayers_behaviors/openlayers_behaviors.info: n/a
+#  openlayers_cck.info,v 1.3 2009/06/26 09:21:23 binarybill
+#  openlayers_filters.info,v 1.1 2009/06/30 04:12:06 binarybill
+#  openlayers_layers.info,v 1.2 2009/06/26 09:21:24 binarybill
+#  openlayers_presets_ui.info,v 1.1 2009/06/26 09:22:38 binarybill
+#  openlayers_views.info,v 1.2.2.2 2009/08/03 00:08:12 binarybill
+#  openlayers_views.views.inc,v 1.1.2.3 2009/08/06 04:42:06 binarybill
+#  openlayers_test.info,v 1.1.2.3 2009/12/26 22:30:39 zzolo
+#  openlayers.install,v 1.10.2.2 2009/08/06 04:42:05 binarybill
+#  openlayers_behaviors.module,v 1.5.2.7 2009/09/24 19:28:08 phayes
+#  openlayers.admin.inc,v 1.5.2.11 2009/10/26 20:41:14 phayes
+#  openlayers.features.inc,v 1.1.2.2 2009/08/06 04:42:05 binarybill
+#  openlayers.render.inc,v 1.1.2.4 2009/08/20 23:48:53 binarybill
+#  openlayers_views_style_map.inc,v 1.16.2.28 2009/12/02 21:36:29 zzolo
+#  openlayers_behaviors.theme.inc,v 1.1.2.3 2009/10/15 23:23:21 phayes
+#  openlayers_behaviors.behaviors.js,v 1.15.2.26 2009/12/17 20:08:42 phayes
+#  openlayers_cck.module,v 1.52.2.19 2009/12/26 23:20:31 zzolo
+#  openlayers_cck.js,v 1.20.2.6 2009/10/06 03:10:12 zzolo
+#  openlayers_filters.module,v 1.1.2.2 2009/08/20 23:21:54 binarybill
+#  openlayers_layers.module,v 1.23.2.4 2009/10/06 01:36:12 zzolo
+#  openlayers_layers.admin.inc,v 1.2.2.2 2009/10/06 01:36:12 zzolo
+#  openlayers_presets_ui.module,v 1.1.2.3 2009/08/20 23:21:54 binarybill
+#  openlayers_presets_ui.theme.inc,v 1.1.2.1 2009/08/06 04:42:06 binarybill
+#  openlayers_views.module,v 1.2.2.3 2009/08/20 23:21:55 binarybill
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2009-12-27 00:28+0100\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: openlayers.module:55
+msgid "The OpenLayers module is the base module for the OpenLayer suite of modules, and provides the main API."
+msgstr ""
+
+#: openlayers.module:624
+msgid "The layer %layer_name cannot work with the map projection: EPSG: %map_proj"
+msgstr ""
+
+#: openlayers.module:636
+msgid "You are using a web spherical mercator projection.  However maxExtent or maxResolution are not set."
+msgstr ""
+
+#: openlayers.module:650
+msgid "Your Maximum Extents are set greater than 180/90 degrees. Try Maximum Extent of: -180,180,-90,90 and a Maximum Resolution of 1.40625"
+msgstr ""
+
+#: openlayers.module:692 docs/openlayers.api.php:103
+msgid "Default OpenLayers WMS"
+msgstr ""
+
+#: openlayers.module:693 docs/openlayers.api.php:104
+msgid "A simple basemap to get you started"
+msgstr ""
+
+#: openlayers.module:709 docs/openlayers.api.php:176 modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:352
+msgid "Default Style"
+msgstr ""
+
+#: openlayers.module:710 docs/openlayers.api.php:177
+msgid "Basic default style."
+msgstr ""
+
+#: openlayers.module:715 docs/openlayers.api.php:182
+msgid "Default Select Style"
+msgstr ""
+
+#: openlayers.module:716 docs/openlayers.api.php:183
+msgid "Default style for selected geometries"
+msgstr ""
+
+#: openlayers.module:755 docs/openlayers.api.php:238 tests/openlayers_test.module:249
+msgid "Default Map"
+msgstr ""
+
+#: openlayers.module:756 docs/openlayers.api.php:239
+msgid "This is the default map preset that comes with the OpenLayers module."
+msgstr ""
+
+#: openlayers.module:65
+msgid "administer openlayers"
+msgstr ""
+
+#: openlayers.module:96 openlayers.info:0;0 modules/openlayers_behaviors/openlayers_behaviors.info:0 modules/openlayers_cck/openlayers_cck.info:0 modules/openlayers_filters/openlayers_filters.info:0 modules/openlayers_layers/openlayers_layers.info:0 modules/openlayers_presets_ui/openlayers_presets_ui.info:0 modules/openlayers_views/openlayers_views.info:0 modules/openlayers_views/views/openlayers_views.views.inc:19 tests/openlayers_test.info:0
+msgid "OpenLayers"
+msgstr ""
+
+#: openlayers.module:97
+msgid "Main settings for OpenLayers."
+msgstr ""
+
+#: openlayers.module:105
+msgid "Settings"
+msgstr ""
+
+#: openlayers.install:42
+msgid "The primary identifier for an OpenLayers preset."
+msgstr ""
+
+#: openlayers.install:48
+msgid "The primary identifier for the preset."
+msgstr ""
+
+#: openlayers.install:54
+msgid "The title of the preset."
+msgstr ""
+
+#: openlayers.install:60
+msgid "The description of the preset."
+msgstr ""
+
+#: openlayers.install:65
+msgid "The serialized map."
+msgstr ""
+
+#: openlayers.info:0
+msgid "OpenLayers base API module"
+msgstr ""
+
+#: docs/openlayers.api.php:143 modules/openlayers_behaviors/openlayers_behaviors.module:51;59
+msgid "Zoom to Layer"
+msgstr ""
+
+#: docs/openlayers.api.php:144 modules/openlayers_behaviors/openlayers_behaviors.module:52
+msgid "When the map is finished loading, zoom to the features contained within the given layer"
+msgstr ""
+
+#: includes/openlayers.admin.inc:25
+msgid "OpenLayers Help"
+msgstr ""
+
+#: includes/openlayers.admin.inc:26
+msgid "Access the advanced help here: !link or click the small help icon."
+msgstr ""
+
+#: includes/openlayers.admin.inc:27
+msgid "Advanced Help"
+msgstr ""
+
+#: includes/openlayers.admin.inc:32
+msgid "This module has extensive help text available with the <a href=\"http://drupal.org/project/advanced_help\">Advanced Help module</a>"
+msgstr ""
+
+#: includes/openlayers.admin.inc:57
+msgid "The source for the OpenLayers library can be one of two things:"
+msgstr ""
+
+#: includes/openlayers.admin.inc:59
+msgid "URL: This means that the OpenLayers JS library is not hosted on this site.  OpenLayers provides a hosted JS file.  By default the Open Layers module will use this, since the JS file cannot be included with the module.  This is @ol_api_url.  This may effect performance as it is not hosted on your site. Also, depending on how the OpenLayers JS API changes, this module may not be compatible with this version."
+msgstr ""
+
+#: includes/openlayers.admin.inc:61
+msgid "Drupal Path: This is a path relative to the Drupal base.  For instance, if you <a href=\"!ol_url\">Download OpenLayers</a> manually to the OpenLayers module folder and extract it, you may use a value like: @suggested_path.  It is important to know that you must <strong>download the full library</strong> with all the Javascript and CSS files, since the OpenLayers library will look for the CSS and image files in that directory as well.  You should also look at using either <a href=\"!build_url\">OpenLayers Build Process</a> or <a href=\"!openlayerer_url\">OpenLayerer</a> to build a custom library for better performance."
+msgstr ""
+
+#: includes/openlayers.admin.inc:74
+msgid "OpenLayers Source"
+msgstr ""
+
+#: includes/openlayers.admin.inc:80
+msgid "OpenLayers Default Preset"
+msgstr ""
+
+#: includes/openlayers.admin.inc:81
+msgid "This is the default preset that will be used in cases where one is not defined.  It will also be used as the default when creating new presets."
+msgstr ""
+
+#: includes/openlayers.admin.inc:89
+msgid "OpenLayers Debug Options"
+msgstr ""
+
+#: includes/openlayers.admin.inc:90
+msgid "Options to allow for different debugging.  Enabled the devel module to allow for screen output."
+msgstr ""
+
+#: includes/openlayers.admin.inc:98
+msgid "Pre-Render Screen"
+msgstr ""
+
+#: includes/openlayers.admin.inc:99
+msgid "This will output each map array to the screen with dpm() before it is rendered."
+msgstr ""
+
+#: includes/openlayers.admin.inc:104
+msgid "Post-Render Screen"
+msgstr ""
+
+#: includes/openlayers.admin.inc:105
+msgid "This will output each map array to the screen with dpm() after it is rendered."
+msgstr ""
+
+#: includes/openlayers.admin.inc:111
+msgid "Pre-Render Watchdog"
+msgstr ""
+
+#: includes/openlayers.admin.inc:112
+msgid "This will output each map array to the watchdog log before it is rendered."
+msgstr ""
+
+#: includes/openlayers.admin.inc:117
+msgid "Post-Render Watchdog"
+msgstr ""
+
+#: includes/openlayers.admin.inc:118
+msgid "This will output each map array to the watchdog log after it is rendered."
+msgstr ""
+
+#: includes/openlayers.features.inc:83 modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:722
+msgid "Cannot delete %name because it is provided by a module."
+msgstr ""
+
+#: includes/openlayers.features.inc:92 modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:731
+msgid "Preset %name was deleted."
+msgstr ""
+
+#: includes/openlayers.features.inc:95 modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:734
+msgid "Error when attempting to delete preset."
+msgstr ""
+
+#: includes/openlayers.features.inc:123
+msgid "Could not load default OpenLayers presets."
+msgstr ""
+
+#: includes/openlayers.render.inc:262;275
+msgid "openlayers"
+msgstr ""
+
+#: includes/openlayers.render.inc:262
+msgid "<p>Pre render output.</p><pre>!array_output</pre>"
+msgstr ""
+
+#: includes/openlayers.render.inc:275
+msgid "<p>Post render output.</p><pre>!array_output</pre>"
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:20
+msgid "Provides a wide range of map \"behaviors\", pluggable map interactivities such as pop-ups, tooltips, and feature editing."
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:60
+msgid "When the map is finished loading, zoom to the given features"
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:67
+msgid "Tooltip"
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:68
+msgid "When the user hover over a feature, provide a tooltip"
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:75
+msgid "Draw and Edit Features"
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:76
+msgid "Allows creation, editing, and deleting of features in an interactive way."
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:83
+msgid "Add a fullscreen button"
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:84
+msgid "View map fullscreen"
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:91
+msgid "De-clutter"
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:92
+msgid "When points are overlapping, de-clutter will space them out so the user can see all of them."
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:99 modules/openlayers_views/views/openlayers_views_style_map.inc:242
+msgid "Cluster"
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:100
+msgid "When points are overlapping, cluster will combine them into new features."
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:107
+msgid "Pop-up"
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.module:108
+msgid "When the user clicks a feature, pop-up some content."
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.info:0
+msgid "OpenLayers Behaviors"
+msgstr ""
+
+#: modules/openlayers_behaviors/openlayers_behaviors.info:0
+msgid "Provides a wide range of map 'behaviors' - pluggable map interactivities such as pop-ups, tooltips, and feature editing."
+msgstr ""
+
+#: modules/openlayers_behaviors/includes/openlayers_behaviors.theme.inc:26
+msgid "Tooltip point"
+msgstr ""
+
+#: modules/openlayers_behaviors/js/openlayers_behaviors.behaviors.js:0
+msgid "Pan around map"
+msgstr ""
+
+#: modules/openlayers_behaviors/js/openlayers_behaviors.behaviors.js:0
+msgid "Draw"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:26
+msgid "The openlayers_cck module provides fields and widgets that interface with OpenLayers."
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:72
+msgid "OpenLayers WKT"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:73
+msgid "Input WKT data via an OpenLayers map."
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:92
+msgid "Point"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:93
+msgid "Path"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:94
+msgid "Polygon"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:100
+msgid "Feature Types"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:101
+msgid "Choose the features that are allowed to be inputed on the map."
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:229;637
+msgid "OpenLayers Map"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:252
+msgid "Input Map Preset"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:253
+msgid "Choose the OpenLayers Preset Map that will be used to input the data."
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:263
+msgid "Show Empty Map"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:264
+msgid "If the formatter for this field is a map, by default a map will not display if there are no features/data.  Check this if you want to ensure that the map does show if there is no data in the field.  Please note that this setting actually affects the formatter and will be true in any of the displays that map formatters are used."
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:429
+msgid "%name: this field cannot hold more than @count values."
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:458
+msgid "WKT Value"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:468
+msgid "OpenLayers Map: @preset"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:618
+msgid "Click the tools in the upper right-hand corner of the map to switch between draw mode and zoom/pan mode. Draw your shape, double-clicking to finish. You may edit your shape using the control points. To delete a shape, select it and press the delete key. To delete a vertex hover over it and press the d key."
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.module:624
+msgid "Show/Hide WKT Fields"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.info:0
+msgid "OpenLayers CCK"
+msgstr ""
+
+#: modules/openlayers_cck/openlayers_cck.info:0
+msgid "Provides CCK fields and widgets through an OpenLayers interface."
+msgstr ""
+
+#: modules/openlayers_cck/js/openlayers_cck.js:0
+msgid "WKT is not valid"
+msgstr ""
+
+#: modules/openlayers_filters/openlayers_filters.module:20 modules/openlayers_filters/openlayers_filters.info:0
+msgid "The OpenLayers Filters module provides input filters to allow for inline maps."
+msgstr ""
+
+#: modules/openlayers_filters/openlayers_filters.module:33
+msgid "Inline OpenLayers Maps"
+msgstr ""
+
+#: modules/openlayers_filters/openlayers_filters.module:42;97;104
+msgid "Substitutes a macro text like !macro_example into a the appropriate rendered OpenLayers map."
+msgstr ""
+
+#: modules/openlayers_filters/openlayers_filters.info:0
+msgid "OpenLayers Filters"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:20
+msgid "Provides a wide variety of freely available layers."
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:88
+msgid "NASA Global Mosaic"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:89
+msgid "A high resolution global image mosaic of the earth, produced from 1999-2003 Landsat7 scenes. The highest resolution has a resolution of 15 meters."
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:97
+msgid "NASA Daily Planet"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:98
+msgid "This layer is the most current, near-global image of the earth available. It is a countinuously updating image from the MODIS TERRA satellite"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:106
+msgid "NASA Blue Marbel"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:107
+msgid "Blue Marble Next Generation, A MODIS-derived 500m true color earth dataset showing seasonal dynamics. This version of the BMNG was updated June 2007"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:115
+msgid "Open Aerial"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:116
+msgid "OpenAerialMap is an open collection of aerial photographs, collected into a single coherent view of the world."
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:124
+msgid "Google Street"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:132
+msgid "Google Satellite"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:140
+msgid "Google Hybrid"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:148
+msgid "Google Physical"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:156
+msgid "Yahoo Street"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:164
+msgid "Yahoo Satellite"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:172
+msgid "Yahoo Hybrid"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:180
+msgid "Virtual Earth Street"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:188
+msgid "Virtual Earth Satellite"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:196
+msgid "Virtual Earth Hybrid"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:204
+msgid "OSM Mapnik"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:212
+msgid "OSM Tiles@Home"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:220
+msgid "OSM Cycling Map"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:228
+msgid "OSM Overlay"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:229
+msgid "Semi-transparent hybrid overlay. Projectd into WSG84 for use on non spherical-mercator maps."
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:237
+msgid "CloudMade"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:238
+msgid "CloudMade tiles.  See <a href=\"http://www.cloudmade.com/\">CloudMade</a>."
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:248
+msgid "Local KML Feed"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:261
+msgid "Geo Table (@key)"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:32 modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:414
+msgid "Layers"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.module:33
+msgid "Set your API keys here"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.info:0
+msgid "OpenLayers Layers"
+msgstr ""
+
+#: modules/openlayers_layers/openlayers_layers.info:0
+msgid "Provides many layers for the OpenLayers module."
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:38
+msgid "Google Layer Settings"
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:39
+msgid "The settings needed to get the Google layer working."
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:45
+msgid "Google Maps API Key"
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:46
+msgid "Your personal Googlemaps API key.  You must get this for each separate website at <a href=\"!google_url\">Google Map API website</a>."
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:54
+msgid "Yahoo Layer Settings"
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:55
+msgid "The settings needed to get the Yahoo layer working."
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:61
+msgid "Yahoo Maps API Key"
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:62
+msgid "Your personal Yahoo API key.  You must get this for each separate website at <a href=\"!yahoo_url\">Yahoo Maps API website</a>."
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:70
+msgid "CloudMade Layer Settings"
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:71
+msgid "The settings needed to get the CloudMade layer working."
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:77
+msgid "CloudMade API Key"
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:78
+msgid "Your personal CloudMade API key.  You must get this for each separate website at <a href=\"!cloudmade_url\">CloudMade Developer Page</a>."
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:85
+msgid "CloudMade Style ID"
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:86
+msgid "CloudMade allows you to syle your map and assigns it an ID.  Create a new style at the  <a href=\"!cloudmade_style_url\">CloudMade Style Editor</a>."
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:92
+msgid "CloudMade OpenLayers JS Library Path"
+msgstr ""
+
+#: modules/openlayers_layers/includes/openlayers_layers.admin.inc:93
+msgid "Enter the Drupal path to where the CloudMade OpenLayers JS library is located.  You down load it from the <a href=\"!cloudmade_js_url\">CloudMade OpenLayers Page</a>."
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:22
+msgid "The OpenLayers Preset UI module provides a User Interface to create map presets."
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:130
+msgid "The specified preset was not found."
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:58
+msgid "Presets"
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:59
+msgid "Create OpenLayers map presets."
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:67
+msgid "List"
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:72
+msgid "Add"
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:73;83
+msgid "Add OpenLayers map preset."
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:82
+msgid "Clone Preset"
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:92
+msgid "Manage Preset"
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:93
+msgid "Manage OpenLayers map preset."
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:101
+msgid "Import"
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:102
+msgid "Import OpenLayers map preset."
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.module:111
+msgid "OpenLayers AHAH"
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.info:0
+msgid "OpenLayers Preset UI"
+msgstr ""
+
+#: modules/openlayers_presets_ui/openlayers_presets_ui.info:0
+msgid "Provides a user interface to create OpenLayers map presets."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.theme.inc:38
+msgid "Available Layers"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:19
+msgid "Title"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:20
+msgid "Description"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:21
+msgid "Actions"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:35;39
+msgid "Edit"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:36
+msgid "Revert"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:40;695;708
+msgid "Delete"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:42
+msgid "Export"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:43
+msgid "Clone"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:74
+msgid "Export: %title"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:80
+msgid "Edit: %title"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:102
+msgid "Cannot edit default preset."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:156
+msgid "Other"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:229
+msgid "Example Map"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:230
+msgid "This is a preview of current map before saving."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:237;786
+msgid "Preset Name"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:238
+msgid "This is the machine readable identifier.  This should be all lowercase characters, numbers, or underscores (_)."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:250
+msgid "Preset Title"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:251
+msgid "This is the descriptive title of the preset and will show up most often in the interface."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:257
+msgid "Preset Description"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:258
+msgid "This is full description of the preset and is mostly used on the preset overview list page."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:266
+msgid "Width"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:267
+msgid "Please use a CSS Width value."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:273
+msgid "Height"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:274
+msgid "Please use a CSS Height value."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:280
+msgid "Image Path"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:281
+msgid "The path to a directory for OpenLayers to look for UI graphics. If blank, default graphics are used."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:288
+msgid "Center"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:289
+msgid "Where the map will center itself initially. You may use the small map to help you set your center and zoom.  Pan and zoom where you want the centering defaults to be."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:299
+msgid "Latitude"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:300
+msgid "Latitude or X value for centering."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:307
+msgid "Longitude"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:308
+msgid "Longitude or Y value for centering."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:315
+msgid "Zoom Level"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:316
+msgid "Zoom level for centering."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:325
+msgid "Controls"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:326
+msgid "Controls on the map that allow the user to interface with the map."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:344
+msgid "Vector Styles"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:345
+msgid "Styles used on features in vector layers."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:353
+msgid "Default style for features in a vector."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:359
+msgid "Select Style"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:360
+msgid "Default style for features in a vector that are selected."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:366
+msgid "Temporary Style"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:367
+msgid "Default style for any temporary features in a vector.  This will also be used for rollovers for things like Tooltips."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:375;384;399
+msgid "Projection"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:376
+msgid "Select projection for map.  This will affect which layers are available to choose from."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:385
+msgid "Select the EPSG code of the !link_proj for your map. The list next to each projection is the layers that support this projection."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:386
+msgid "geographical projection"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:400
+msgid "The EPSG code of the geographical projection for your map."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:415
+msgid "Layer settings.  The Layer options will change based on the projection chosen above."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:422
+msgid "Base Layers"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:423
+msgid "Select the base layers to make available for your map. This list is determined by the projection you select for your map."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:431
+msgid "Default Base Layer"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:432
+msgid "The default base layer to use when rendering maps.  This will be included whether it is in the base layers or not."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:439
+msgid "Overlay Layers"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:440
+msgid "Select the overlay layers to make available for your map."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:450
+msgid "Options"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:451
+msgid "Set additional options"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:458
+msgid "Automatic Options"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:459
+msgid "If this is checked, options will be automatically filled for you."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:465
+msgid "Display Projection"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:466
+msgid "This is the projection that is presented to your users as the interface for viewing / editing location data. You will most likely want use 4326 for lat/lon coordinates."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:472
+msgid "Maximum Resolution"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:473
+msgid "The maximum number of pixels / map unit at the highest zoom."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:479
+msgid "Maximum Extent"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:480
+msgid "Set the bounds for the edges of your map. Set them according to the units of your projection."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:487
+msgid "Left"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:493
+msgid "Right"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:499
+msgid "Bottom"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:505
+msgid "Top"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:519
+msgid "Update Projections"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:526;804
+msgid "Save"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:531;696;709;808
+msgid "Cancel"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:569
+msgid "Preset Name is required."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:573
+msgid "Preset Title is required."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:577
+msgid "Preset Description is required."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:581
+msgid "Width is required."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:585
+msgid "Height is required."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:591
+msgid "Preset Name must contain only lowercase letters, numbers, and underscores."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:598
+msgid "The Preset Name already exists."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:611
+msgid "OpenLayers Map Rendering Error: !error"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:665
+msgid "Map saved."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:669
+msgid "Error trying to save map"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:680
+msgid "Cannot delete default preset."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:690
+msgid "Are you sure you want to revert the preset %preset?"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:694
+msgid "This will delete the preset in the database and revert to the preset in a feature or code. This action cannot be undone."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:703
+msgid "Are you sure you want to delete the preset %preset?"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:707
+msgid "This action cannot be undone."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:765
+msgid "Done"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:787
+msgid "Identifier of new preset if one is not provided or already exists."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:795
+msgid "Import Code"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:796
+msgid "Input the code that was produced from the Export function.  If you put in bad code, this could break your site, please be careful."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:828
+msgid "Format is bad"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:835
+msgid "Format is bad for key: %key"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:838
+msgid "No Preset Title Found for key: %key"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:841
+msgid "No Preset Description Found for key: %key"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:844
+msgid "No Map Data Found for key: %key"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:847
+msgid "No Map Width Found for key: %key"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:850
+msgid "No Map Height Found for key: %key"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1150
+msgid "Attribution"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1151
+msgid "Allows layers to provide attribution to the map if it exists."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1154
+msgid "Keyboard Defaults"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1155
+msgid "Provides a the ability to use the keyboard to pan and zoom map."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1158
+msgid "Layer Switcher"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1159
+msgid "Gives user ability to switch Layers in the map interface."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1162
+msgid "Mouse Position"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1163
+msgid "Gives a visual indication of the mouse position to the user."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1166
+msgid "Navigation"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1167
+msgid "Gives the user the ability to navigate the map interface."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1170
+msgid "Pan Zoom Bar"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1171
+msgid "Gives user ability to pan and zoom in the map interface. The Navigation control needs to be enabled for this to function."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1174
+msgid "Pan Zoom"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1175
+msgid "A smaller version of the Pan Zoom Bar, providing a control for panning and a small zoom control.  The Navigation control needs to be enabled for this to function."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1178
+msgid "Permanent Link"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1179
+msgid "Prvides a URL that will link to a specific map position."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1182
+msgid "Scale Line"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1183
+msgid "Provides the user with a line of scale in the map interface."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1186
+msgid "Zoom Box"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1187
+msgid "Allows user to draw a box on screen to zoom with Shift + Click."
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1190
+msgid "Zoom to Max Extent"
+msgstr ""
+
+#: modules/openlayers_presets_ui/includes/openlayers_presets_ui.ui.inc:1191
+msgid "Provides button to zoom to the maximum extent of the map."
+msgstr ""
+
+#: modules/openlayers_views/openlayers_views.module:25
+msgid "The OpenLayers Views module provides a set of plugins for Views."
+msgstr ""
+
+#: modules/openlayers_views/openlayers_views.info:0
+msgid "OpenLayers Views"
+msgstr ""
+
+#: modules/openlayers_views/openlayers_views.info:0
+msgid "Provides OpenLayers Views plugins."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views.views.inc:20
+msgid "Displays nodes as an OpenLayers map."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:45
+msgid "You need to enable at least one field before you can configure your field settings"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:75
+msgid "Geo Module"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:79
+msgid "Location CCK Fields"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:83
+msgid "Node Locations"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:86
+msgid "Other: Lat/Lon Point"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:87
+msgid "Other: Well Known Text"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:93
+msgid "Data Source"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:100
+msgid "Map Data Sources"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:101
+msgid "Choose which sources of data that the map will provide features for."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:110
+msgid "Geo Module Fields"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:111
+msgid "Choose the fields provide by the Geo Module that will be used for feature data."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:123
+msgid "Location Fields"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:124
+msgid "Choose the fields provided by the Location module that will be used for feature data."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:135
+msgid "Latitude Field"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:136
+msgid "Choose a field for Latitude.  This should be a field that is a decimal or float value."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:144
+msgid "Longitude Field"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:145
+msgid "Choose a field for Longitude.  This should be a field that is a decimal or float value."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:157
+msgid "WKT Field"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:158
+msgid "Choose the fields for Well Known Text data."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:169
+msgid "Map Presets"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:175
+msgid "Map Preset"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:176
+msgid "This is map that will be used to render the view."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:182
+msgid "Do Not Display Empty Map"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:183
+msgid "Check this is you do not want a map to show if there is no data available in the view."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:191
+msgid "Map Behaviors Options"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:198;288
+msgid "<none>"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:198
+msgid "<all> (render entire row)"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:201
+msgid "Tooltip Field"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:202
+msgid "Select the field you would like to use as a tooltip"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:208
+msgid "Pop-up Field"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:209
+msgid "Select the field you would like to use as a popup"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:216
+msgid "Zoom to Features"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:217
+msgid "Automatically zoom to encompass views data (overrides map settings)"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:222
+msgid "Fullscreen"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:223
+msgid "Allow map to be viewed fullscreen"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:228
+msgid "Declutter"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:229
+msgid "Automagically space points so they do not overlap."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:234
+msgid "Declutter Distance Adjustment"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:235
+msgid "Set to a negative number to have icons cluster closer together. Set to a positive number to have them furthur apart. Leave blank for default."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:243
+msgid "Cluster nodes that are close together into a single node."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:248
+msgid "Cluster distance"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:249
+msgid "Pixel distance between features that should be considered a single cluster.  Default is 20 pixels."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:256
+msgid "Cluster threshold"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:257
+msgid "Optional threshold below which original features will be added to the layer instead of clusters.  For example, a threshold of 3 would mean that any time there are 2 or fewer features in a cluster, those features will be added directly to the layer instead of a cluster representing those features.  Default is 2 (meaning that clusters must contain at least two features)."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:264
+msgid "Popups on clusters"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:265
+msgid "Should clustered features permit popups?"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:272
+msgid "Callback for popup contents when clustering"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:273
+msgid "Enter the name of a JavaScript callback that returns the contents of popups (a string) attached to clustered features.  The callback takes one argument: 'feature'.  <em>feature.cluster</em> contains the features being clustered together."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:284
+msgid "Grouping"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:291
+msgid "Grouping Field"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:294
+msgid "You can group features by field.  This means that each group will be a separate layer with those specific features."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:300
+msgid "Feature Styles"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:301
+msgid "For advanced users only"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:307
+msgid "Style-context callback"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:308
+msgid "If you want to be able to theme features on the fly with JavaScript, write a JS function that returns an associative array of functions and variables (a style context) and enter its name here.  You can then use these callbacks anywhere you define a style array (for example, in theme_openlayers_vector_styles) with \"${func_name}\".  For example: \"pointRadius\" => \"${get_cluster_size}\".  This is particularly useful when you have clustering enabled, as the clustering algorithm creates new features on the fly and it's difficult to theme them before runtime.  One caveat: if you define a style context, you cannot access feature.attributes with the ${} notation (although you can access feature.attributes directly from within your context's functions). <br /> The function takes the parameters func(map_id, layer_id, render_intent) and so can return different contexts based on the map, layer, and render intent."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:313
+msgid "Feature Styles function"
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:314
+msgid "Enter PHP code that returns a style array for each feature. This will overrirde theme feature styling functions. <br/> $fields contains your defined fields, $record contains instances of those fields along with geometries. Array should be of the form 'styleProperty' => 'styleValue'. You may return false to use defaults. See documentation for available style Properties."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:488
+msgid "OpenLayers views are not compatible with live preview."
+msgstr ""
+
+#: modules/openlayers_views/views/openlayers_views_style_map.inc:493
+msgid "Missing Row Plug-in"
+msgstr ""
+
+#: tests/openlayers_test.module:63;252
+msgid "Default Test Map"
+msgstr ""
+
+#: tests/openlayers_test.module:64
+msgid "This is a test preset."
+msgstr ""
+
+#: tests/openlayers_test.module:108
+msgid "Style Test Vector"
+msgstr ""
+
+#: tests/openlayers_test.module:113
+msgid "A Polygon with a hole in it"
+msgstr ""
+
+#: tests/openlayers_test.module:124
+msgid "A point"
+msgstr ""
+
+#: tests/openlayers_test.module:137
+msgid "Another point"
+msgstr ""
+
+#: tests/openlayers_test.module:149
+msgid "Style Test"
+msgstr ""
+
+#: tests/openlayers_test.module:150
+msgid "This is a style test."
+msgstr ""
+
+#: tests/openlayers_test.module:178
+msgid "Default Vector"
+msgstr ""
+
+#: tests/openlayers_test.module:197
+msgid "second Vector"
+msgstr ""
+
+#: tests/openlayers_test.module:214
+msgid "Cluster Group Example"
+msgstr ""
+
+#: tests/openlayers_test.module:215
+msgid "Example to test clustering and grouping."
+msgstr ""
+
+#: tests/openlayers_test.module:241
+msgid "Fieldset Example"
+msgstr ""
+
+#: tests/openlayers_test.module:255
+msgid "Style Test Map"
+msgstr ""
+
+#: tests/openlayers_test.module:258
+msgid "Cluster Group Map"
+msgstr ""
+
+#: tests/openlayers_test.module:21
+msgid "OpenLayers Test Page"
+msgstr ""
+
+#: tests/openlayers_test.module:22
+msgid "Test Page for OpenLayers."
+msgstr ""
+
+#: tests/openlayers_test.info:0
+msgid "OpenLayers Tests"
+msgstr ""
+
+#: tests/openlayers_test.info:0
+msgid "OpenLayers test module.  There is no reason to install this."
+msgstr ""
+

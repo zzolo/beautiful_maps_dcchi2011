@@ -1,0 +1,60 @@
+<!-- $Id: openlayers-map-array-events.html,v 1.1.2.1 2009/09/13 05:44:39 zzolo Exp $ -->
+Events are used to plug into the map rendering process or events that happen as the map is interfaced with.  Events can be defined for the map itself or for specific layers.  For example:
+
+<pre>
+$map_array = array(
+  'events' => array(
+    'beforeCenter' => array('customCallback'),
+  )
+  'layers' = array(
+    'default_vector' => array(
+      'events' => array(
+        'moveend' => array('customModuleLoadSomeData','customModuleDoSomethingElse'),
+        'zoomend' => array('customModuleLoadSomeData'),
+      ),
+    ),
+  ),
+);
+</pre>
+
+Basically, on the PHP side, you are simply defining JS callbacks to be used.
+
+<h3>Rendering Events</h3>
+
+The following are custom rendering event points provided by the OpenLayers module:
+
+<dl>
+  <dt>beforeEverything</dt>
+    <dd>Executed as soon as possible for each map. The OpenLayers map object is not yet built.</dd>
+  
+  <dt>beforeLayers</dt>
+    <dd>After the map object is built, but before layers are created and added.</dd>
+  
+  <dt>beforeCenter</dt>
+    <dd>Before the map is zoomed and centered.</dd>
+  
+  <dt>beforeControls</dt>
+    <dd>Before controls are added to the map</dd>
+  
+  <dt>beforeEvents</dt>
+    <dd>Before events are added to the map</dd>
+  
+  <dt>beforeBehaviors</dt>
+    <dd>Before behaviors are triggered</dd>
+  
+  <dt>mapReady</dt>
+    <dd>Last call
+</dl>
+
+<h3>OpenLayers Map Events</h3>
+
+The OpenLayers map object has built-in events.  See the <a href="http://dev.openlayers.org/docs/files/OpenLayers/Map-js.html#OpenLayers.Map.EVENT_TYPES">supported map event types</a>.
+
+<h3>OpenLayers Layer Events</h3>
+
+The OpenLayers layer object has built-in events.  Here are a few links to some of the common layer types and events available to them:
+
+<ul>
+  <li><a href="http://dev.openlayers.org/docs/files/OpenLayers/Layer-js.html#OpenLayers.Layer.EVENT_TYPES">Base Layer Object</a></li>
+  <li><a href="http://dev.openlayers.org/docs/files/OpenLayers/Layer/Vector-js.html#OpenLayers.Layer.Vector.EVENT_TYPES">Vector</a></li>
+</ul>

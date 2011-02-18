@@ -1,0 +1,12 @@
+$Id: UPGRADE.txt,v 1.1.2.2 2009/12/26 22:30:39 zzolo Exp $
+
+This file describes any steps for upgrading openlayers to 
+different versions.
+=====================================
+
+
+Upgrading to 6.x-1.0-beta4
+=====================================
+  * CCK default behavior has changed to not show empty
+    maps.  Make sure to do DB updates to update the
+    default behavior of CCK map formatters.

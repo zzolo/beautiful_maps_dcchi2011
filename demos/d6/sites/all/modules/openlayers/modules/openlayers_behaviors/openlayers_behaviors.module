@@ -1,0 +1,116 @@
+<?php
+// $Id: openlayers_behaviors.module,v 1.5.2.7 2009/09/24 19:28:08 phayes Exp $
+
+/**
+ * @file
+ * This file holds the main Drupal hook functions
+ * and private functions for the openlayers_behaviors module.
+ *
+ * @ingroup openlayers
+ */
+
+/**
+ * Implementation of hook_help().
+ */
+function openlayers_behaviors_help($path, $arg) {
+  $output = '';
+
+  switch ($path) {
+    case 'admin/help#openlayers_behaviors':
+      $output = '<p>'. t('Provides a wide range of map "behaviors", pluggable map interactivities such as pop-ups, tooltips, and feature editing.') .'</p>';
+      return $output;
+
+  }
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function openlayers_behaviors_theme($existing, $type, $theme, $path) {
+  return array(
+    'openlayers_behaviors_tooltip_container' => array(
+      'arguments' => array(
+        'behavior' => array(),
+        'map' => array(),
+      ),
+      'file' => 'includes/openlayers_behaviors.theme.inc',
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_openlayers_behaviors_info().
+ */
+function openlayers_behaviors_openlayers_behaviors_info() {
+  $file = drupal_get_path('module', 'openlayers_behaviors') .'/includes/openlayers_behaviors.behaviors.inc';
+  $js_file = drupal_get_path('module', 'openlayers_behaviors') .'/js/openlayers_behaviors.behaviors.js';
+  $info = array();
+
+  // Define info array
+  $info['openlayers_behaviors_zoom_to_layer'] = array(
+    'name' => t('Zoom to Layer'),
+    'description' => t('When the map is finished loading, zoom to the features contained within the given layer'),
+    'file' => $file,
+    'callback' => 'openlayers_behaviors_process_zoom_to_layer',
+    'js_file' => $js_file,
+    'js_callback' => 'zoomToLayer',
+  );
+  $info['openlayers_behaviors_zoom_to_feature'] = array(
+    'name' => t('Zoom to Layer'),
+    'description' => t('When the map is finished loading, zoom to the given features'),
+    'file' => $file,
+    'callback' => 'openlayers_behaviors_process_zoom_to_feature',
+    'js_file' => $js_file,
+    'js_callback' => 'zoomToFeature',
+  );
+  $info['openlayers_behaviors_tooltip'] = array(
+    'name' => t('Tooltip'),
+    'description' => t('When the user hover over a feature, provide a tooltip'),
+    'file' => $file,
+    'callback' => 'openlayers_behaviors_process_tooltip',
+    'js_file' => $js_file,
+    'js_callback' => 'tooltip',
+  );
+  $info['openlayers_behaviors_draw_features'] = array(
+    'name' => t('Draw and Edit Features'),
+    'description' => t('Allows creation, editing, and deleting of features in an interactive way.'),
+    'file' => $file,
+    'callback' => 'openlayers_behaviors_process_draw_features',
+    'js_file' => $js_file,
+    'js_callback' => 'drawFeatures',
+  );
+  $info['openlayers_behaviors_fullscreen'] = array(
+    'name' => t('Add a fullscreen button'),
+    'description' => t('View map fullscreen'),
+    'file' => $file,
+    'callback' => 'openlayers_behaviors_process_fullscreen',
+    'js_file' => $js_file,
+    'js_callback' => 'fullscreen',
+  );
+  $info['openlayers_behaviors_declutter'] = array(
+    'name' => t('De-clutter'),
+    'description' => t('When points are overlapping, de-clutter will space them out so the user can see all of them.'),
+    'file' => $file,
+    'callback' => 'openlayers_behaviors_process_declutter',
+    'js_file' => $js_file,
+    'js_callback' => 'declutter',
+  );
+  $info['openlayers_behaviors_cluster'] = array(
+    'name' => t('Cluster'),
+    'description' => t('When points are overlapping, cluster will combine them into new features.'),
+    'file' => $file,
+    'callback' => 'openlayers_behaviors_process_cluster',
+    'js_file' => $js_file,
+    'js_callback' => 'cluster',
+  );
+  $info['openlayers_behaviors_popup'] = array(
+    'name' => t('Pop-up'),
+    'description' => t('When the user clicks a feature, pop-up some content.'),
+    'file' => $file,
+    'callback' => 'openlayers_behaviors_process_popup',
+    'js_file' => $js_file,
+    'js_callback' => 'popup',
+  );
+
+  return $info;
+}

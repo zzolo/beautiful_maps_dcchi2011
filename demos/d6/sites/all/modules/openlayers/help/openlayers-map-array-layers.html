@@ -1,0 +1,103 @@
+<!-- $Id: openlayers-map-array-layers.html,v 1.1.2.1 2009/09/13 05:44:39 zzolo Exp $ -->
+Layers are handled in one of two ways.  
+
+<h3>Manual Layers</h3>
+The first way is manually creating the layer and all the options in the full map array.  Here is an example:
+
+<pre>
+'layers' => array(
+  'default_wms' => array(
+    'id' => 'default_wms',
+    'type'=> 'WMS',
+    'name' => t('Default Open Layers WMS'),
+    'url' => 'http://labs.metacarta.com/wms/vmap0',
+    'params' => array(
+      'layers' => 'basic',
+    ),
+    'options' => array(),
+  ),
+),
+</pre>
+
+<h3>Named Layer</h3>
+The second way is to use the a named layer provided by the <em>hook_openlayers_layers_info()</em> (see the <a href="&topic:openlayers/openlayers-api-hooks&">OpenLayers hooks</a>).  For example:
+
+<pre>
+'layers' => array(
+  'openlayers_default_wms',
+),
+</pre>
+
+<h3>Basic Layer Properties</h3>
+
+Layer properties are unique to the type of layer.  Below are the common properties.
+
+<ul>
+  <li><strong>id</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>The identifier for the layer.  This should be unique.</dd>
+      <dt>Example:</dt>
+        <dd>'default_wms'</dd>
+    </dl>
+  </li>
+  
+  <li><strong>type</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>The type of layer this is.  Layer types are provided by the <em>hook_openlayers_layer_handler_info()</em> hook.  By default, the OpenLayers module comes with a WMS and Vector types.</dd>
+      <dt>Example:</dt>
+        <dd>'WMS'</dd>
+    </dl>
+  </li>
+  
+  <li><strong>name</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>The name of the layer.  This will show up in the Layer Switcher or in the preset interface if this is a named layer.</dd>
+      <dt>Example:</dt>
+        <dd>t('A WMS Layer')</dd>
+    </dl>
+  </li>
+  
+  <li><strong>description</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>This is a more complete description of the layer is really only used in the preset interface.</dd>
+      <dt>Example:</dt>
+        <dd>t('Full description of the layer')</dd>
+    </dl>
+  </li>
+  
+  <li><strong>projection</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>array</dd>
+      <dt>Description:</dt>
+        <dd>Array of strings to let the map know what kind of projections this layer supports.  This is mostly used in the preset interface.</dd>
+      <dt>Example:</dt>
+        <dd>array('4326', '900913', '4269'),</dd>
+    </dl>
+  </li>
+  
+  <li><strong>baselayer</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>boolean</dd>
+      <dt>Description:</dt>
+        <dd>Whether this layer can be used as a baselayer or not.  Mostly used in the preset interface.</dd>
+      <dt>Example:</dt>
+        <dd>TRUE</dd>
+    </dl>
+  </li>
+</ul>
+
+<strong>TODO: Add docs for the specific options for each layer that OL modules provide.</strong>

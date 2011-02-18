@@ -1,0 +1,190 @@
+<!-- $Id: openlayers-map-array-behaviors.html,v 1.1.2.3 2009/10/26 20:33:12 phayes Exp $ -->
+Behaviors are bundled functionality for maps.  There are a number of behaviors available to maps, each with their own properties.
+
+<h3>General Properties</h3>
+
+<ul>
+  <li><strong>id</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>Identifier of the behavior.</dd>
+      <dt>Example:</dt>
+        <dd>'behavior_type_id'</dd>
+    </dl>
+  </li>
+  
+  <li><strong>type</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>The type of behavior which dictates the callbacks.</dd>
+      <dt>Example:</dt>
+        <dd>'openlayers_behaviors_tooltip'</dd>
+    </dl>
+  </li>
+</ul>
+
+<h3>Tooltips</h3>
+
+Example:
+
+<pre>
+'behaviors' = array(
+  'openlayers_views_tooltip_id' = array(
+    'id' => 'openlayers_views_tooltip_id',
+    'type' => 'openlayers_behaviors_tooltip',
+    'layer' => 'layer_name',
+    'attribute' => 'openlayers_tooltip',
+  ),
+),
+</pre>
+
+<ul>
+  <li><strong>layer</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>Which layer to assign this behavior to.  This probably will be a Vector layer.</dd>
+      <dt>Example:</dt>
+        <dd>'layer_name'</dd>
+    </dl>
+  </li>
+  
+  <li><strong>attribute</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>The key of the attribute to use from the feature as the display text.  See <a href="&topic:openlayers/openlayers-map-array-features&">Features</a>.  This will be <em>name</em> by default.</dd>
+      <dt>Example:</dt>
+        <dd>'name'</dd>
+    </dl>
+  </li>
+  
+  <li><strong>attribute_id</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>The HTML identifier to be used for the the div around the text.  Defaults to <em>Map ID and 'tooltip-text'</em>.</dd>
+      <dt>Example:</dt>
+        <dd>$map['id'] . '-tooltip-text'</dd>
+    </dl>
+  </li>
+  
+  <li><strong>container_id</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>The HTML identifier to be used main tooltip div.  Defaults to <em>Map ID and 'tooltip-container'</em>.</dd>
+      <dt>Example:</dt>
+        <dd>$map['id'] . '-tooltip-container'</dd>
+    </dl>
+  </li>
+
+  <li><strong>tooltip_id</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>The HTML identifier to be used main tooltip div. This is the div you should use for theming. Defaults to <em>Map ID and 'tooltip'</em>.</dd>
+      <dt>Example:</dt>
+        <dd>$map['id'] . '-tooltip'</dd>
+    </dl>
+  </li>
+  
+  <li><strong>offset_top</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>integer or string</dd>
+      <dt>Description:</dt>
+        <dd>Pixels to offset tooltip from the top. May also use 'height' or 'width' to dynamically offset using the size of the container. Defaults to <em>'height'</em>.</dd>
+      <dt>Example:</dt>
+        <dd>10</dd>
+    </dl>
+  </li>
+  
+  <li><strong>offset_left</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>integer or string</dd>
+      <dt>Description:</dt>
+        <dd>Pixels to offset tooltip from the left.  May also use 'height' or 'width' to dynamically offset using the size of the container. Defaults to <em>0</em>.</dd>
+      <dt>Example:</dt>
+        <dd>12</dd>
+    </dl>
+  </li>
+</ul>
+
+<h4>Theming the tooltip</h4>
+
+<p>There are two ways to theme the tooltip. The first is simply using css. To do this override the css selector <code>.openlayers-behaviors-tooltip</code> .</p>
+
+<p>The second way to do this is to implement a theme override, this can be done by overriding <code>theme_openlayers_behaviors_tooltip_container</code> .</p>
+
+<h3>Popups</h3>
+
+Example:
+
+<pre>
+'behaviors' = array(
+  'openlayers_views_popup' = array(
+    'id' => 'openlayers_views_popup',
+    'type' => 'openlayers_behaviors_popup',
+    'attribute' => 'openlayers_popup',
+  ),
+),
+</pre>
+
+<ul>
+  <li><strong>attribute</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>The key of the attribute to use from the feature as the display text.  See <a href="&topic:openlayers/openlayers-map-array-features&">Features</a>.  This will be <em>name</em> by default.</dd>
+      <dt>Example:</dt>
+        <dd>'name'</dd>
+    </dl>
+  </li>
+</ul>
+
+<h3>Draw Features</h3>
+
+<h3>Zoom to Layer(s)</h3>
+
+<h3>Cluster</h3>
+
+<h3>Declutter</h3>
+
+<h3>Fullscreen</h3>
+
+<p>This behavior displays a 'fullscreen' button that allows the map to be viewed fullscreen. Fullscreen mode can also be turned on by default, or locked fullscreen.
+
+<pre>
+'behaviors' = array (
+  'some_id' = array (
+    'id' => 'some_id',
+    'type' => 'openlayers_behaviors_fullscreen',
+    'defaut' => 'on', // optional, assumes 'off' if ommited.
+  ),
+),
+</pre>
+
+<ul>
+  <li><strong>default</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>'off' - <i>default</i>, 'on', 'locked'</dd>
+      <dt>Description:</dt>
+        <dd>Should the fullscreen be on by default? off by default? or locked so that the user cannot un-fullscreen the map?</dd>
+      <dt>Example:</dt>
+        <dd>'locked'</dd>
+    </dl>
+  </li>
+  

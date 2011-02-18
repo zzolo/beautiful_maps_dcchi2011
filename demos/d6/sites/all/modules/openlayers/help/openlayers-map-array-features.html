@@ -1,0 +1,142 @@
+<!-- $Id: openlayers-map-array-features.html,v 1.1.2.1 2009/09/13 05:44:39 zzolo Exp $ -->
+Features can be added in a number of ways through the interface.  To directly add them in the map array, they must go into a specific Vector layer.  Example of layer with features:
+
+<pre>
+'feature_example' => array(
+  'id' => 'feature_example',
+  'type' => 'Vector',
+  'name' => t('Default Vector'),
+  'options' => array(),
+  'events' => array(),
+  'features' => array(
+    'feature_1' => array(
+      'wkt' => 'POLYGON((1 1,5 1,5 5,1 5,1 1),(2 2, 3 2, 3 3, 2 3,2 2))',
+      'attributes' => array(
+        'name' => 'A Polygon with a hole in it',
+        'date' => 'December 24, 2004',
+        'author' => 'Santa Claus',
+      ),
+      'style' => array(
+        'fillColor' => '#aa4400',
+        'fillOpacity' => '0.7',
+      ),
+    ),
+    'feature_2' => array(
+      'lat' => '40.123',
+      'lon' => '-20.123',
+      'attributes' => array(
+        'name' => 'A point',
+        'date' => 'December 24, 2004',
+        'author' => 'Rudolf',
+      ),
+      'style' => array(
+        'externalGraphic' => 'http://openlayers.org/dev/img/marker.png',
+        'graphicWidth' => 21,
+        'graphicHeight' => 25,
+        'graphicXOffset' => 10,
+        'graphicYOffset' => 10,
+      ),
+    ),
+  ),
+),
+</pre>
+
+<ul>
+  <li><strong>features</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>array</dd>
+      <dt>Description:</dt>
+        <dd>The array that is in the Vector layer.  This array will have unique string keys for the actual feature array.</dd>
+      <dt>Example:</dt>
+        <dd>
+<pre>
+array(
+  'feature_1' => array( .. ),
+  'feature_2' => array( .. ),
+)
+</pre>
+        </dd>
+    </dl>
+  </li>
+  
+  <li><strong>wkt</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string</dd>
+      <dt>Description:</dt>
+        <dd>The feature can either be defined by a WKT string or a lat, lon pair.</dd>
+      <dt>Example:</dt>
+        <dd>'POINT(12 12)'</dd>
+    </dl>
+  </li>
+  
+  <li><strong>lon</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string (float)</dd>
+      <dt>Description:</dt>
+        <dd>If not using the WKT field, you can specify a point with lat and lon.  This is the longitude part.</dd>
+      <dt>Example:</dt>
+        <dd>'12'</dd>
+    </dl>
+  </li>
+  
+  <li><strong>lat</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string (float)</dd>
+      <dt>Description:</dt>
+        <dd>If not using the WKT field, you can specify a point with lat and lon.  This is the latitude part.</dd>
+      <dt>Example:</dt>
+        <dd>'12'</dd>
+    </dl>
+  </li>
+  
+  <li><strong>projection</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>string (number)</dd>
+      <dt>Description:</dt>
+        <dd>The projection of the feature.  This will be converted when the feature is added.</dd>
+      <dt>Example:</dt>
+        <dd>'4326'</dd>
+    </dl>
+  </li>
+  
+  <li><strong>attributes</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>array</dd>
+      <dt>Description:</dt>
+        <dd>Array of values to be passed along to the feature and stored with it.  These can be used for Tooltips and Popups, which by default display the <em>name</em> attribute.</dd>
+      <dt>Example:</dt>
+        <dd>
+<pre>
+array(
+  'name' => t('A Polygon with a hole in it'),
+  'author' => t('Santa Claus'),
+),
+</pre>
+        </dd>
+    </dl>
+  </li>
+  
+  <li><strong>style</strong>
+    <dl>
+      <dt>Values:</dt>
+        <dd>array</dd>
+      <dt>Description:</dt>
+        <dd>Array of style data for specific feature.  By default, the default styles will be used.  See the section on <a href="&topic:openlayers/openlayers-map-array-styles&">Styles</a> for more all the otpions.</dd>
+      <dt>Example:</dt>
+        <dd>
+<pre>
+array(
+  'fillColor' => '#AA4400',
+  'fillOpacity' => '0.7',
+),
+</pre>
+        </dd>
+    </dl>
+  </li>
+</ul>

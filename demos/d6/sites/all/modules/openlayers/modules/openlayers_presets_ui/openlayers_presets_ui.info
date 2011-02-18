@@ -1,0 +1,12 @@
+; $Id: openlayers_presets_ui.info,v 1.1 2009/06/26 09:22:38 binarybill Exp $
+name = OpenLayers Preset UI
+description = Provides a user interface to create OpenLayers map presets. 
+core = 6.x
+package = OpenLayers
+dependencies[] = openlayers
+; Information added by drupal.org packaging script on 2010-07-15
+version = "6.x-1.x-dev"
+core = "6.x"
+project = "openlayers"
+datestamp = "1279152770"
+

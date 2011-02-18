@@ -1,0 +1,27 @@
+/* $Id: openlayers_presets_ui.css,v 1.1 2009/06/26 09:22:38 binarybill Exp $ */
+
+/**
+ * @file
+ * OpenLayers Preset UI Main CSS
+ *
+ * This file holds the base CSS for the openlayers preset ui module
+ *
+ * @ingroup openlayers
+ */
+
+/**
+ * Map Form
+ */
+.openlayers-form-projection-description,
+.openlayers-form-layer-description {
+  font-size: smaller;
+  font-style: italic;
+}
+
+.openlayers-center-helpmap{
+  float: right;
+}
+
+#openlayers-form-proj-msg{
+  display:none;
+}

@@ -1,0 +1,26 @@
+<!-- $Id: openlayers-administration-library.html,v 1.1.2.1 2009/10/05 00:00:07 zzolo Exp $ -->
+
+
+<h2>Use OpenLayer's Hosted Version</h2>
+The <a href="http://openlayers.org">OpenLayers</a> library is a Javascript library.  By default, the Drupal OpenLayers module uses the hosted version of the library at:
+
+<code>
+http://openlayers.org/api/OpenLayers.js
+</code>
+
+<h2>Host on Your Site</h2>
+
+To get better performance, you will want to <a href="http://trac.openlayers.org/wiki/HowToDownload">download the library</a> yourself and host it on your site.  Please note that you need to download the whole library, as OpenLayers has CSS files and images that are needed for it to work.
+
+You can just download the whole library, unpack it and point the module at the <em>OpenLayers.js</em> file at <a href="&base_url&admin/settings/openlayers/settings">Admin &raquo; Settings &raquo; OpenLayers &raquo Settings</a>.
+
+<h2>Build Yourself</h2>
+
+For even better performance, you will want to build the library yourself with only the parts that you are using for your site.  This may get a little advanced for most users, as you may not know what specific parts your site is using.  The second version of this module should have better support for building the OpenLayer library.
+
+There are two main ways to building your own library:
+
+<ul>
+<li>You can use <a href="http://docs.openlayers.org/library/deploying.html">OpenLayer's Builder</a> which involves using Python.</li>
+<li>The more newer (and possibly unstable) and easier way to build a library is at <a href="http://openlayerer.appspot.com/">OpenLayerer</a>, which provides a nice web interface for picking what parts are desired and building them for you.  It is suggested to use the stable version (not Trunk).  You will still need to include the theme files if they are needed.</li>
+</ul>

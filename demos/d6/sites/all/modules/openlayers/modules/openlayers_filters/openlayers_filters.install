@@ -1,0 +1,55 @@
+<?php
+// $Id: openlayers_filters.install,v 1.1.2.1 2010/02/15 21:47:49 zzolo Exp $
+
+/**
+ * @file
+ * This file holds the functions for the installing
+ * and enabling of the openlayers_filters module.
+ *
+ * @ingroup openlayers
+ */
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function openlayers_filters_uninstall() {
+  // Get module variables
+  $results = db_query("SELECT v.name FROM {variable} AS v WHERE v.name LIKE '%s%%'", 'openlayers_filters_');
+  // Remove variables
+  while ($row = db_fetch_array($results)) {
+    variable_del($row['name']);
+  }
+}
+
+/**
+ * Implementation of hook_enable().
+ */
+function openlayers_filters_enable() {
+  // As needed for upgrading to 2.x (while accounting
+  // for 0.x), we set a variable that can help
+  // the upgrade function in 2.x understand what needs
+  // to be done.  Note, it is not meant to actually
+  // maintain the schema version.
+  variable_set('openlayers_filters_schema_version', 6100);
+}
+
+/**
+ * Implementation of hook_update_N().
+ *
+ * No need for translation in update function:
+ * http://drupal.org/node/322731
+ */
+function openlayers_filters_update_6100(&$sandbox) {
+  // As needed for upgrading to 2.x (while accounting
+  // for 0.x), we set a variable that can help
+  // the upgrade function in 2.x understand what needs
+  // to be done.  Note, it is not meant to actually
+  // maintain the schema version.
+  variable_set('openlayers_filters_schema_version', 6100);
+  return array(
+    0 => array(
+      'success' => TRUE,
+      'query' => 'Setup for upgrading to 2.x: openlayers_filters_schema_version',
+    ),
+  );
+}

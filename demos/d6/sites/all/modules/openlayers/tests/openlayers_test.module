@@ -1,0 +1,479 @@
+<?php
+// $Id: openlayers_test.module,v 1.1.2.8 2010/04/28 08:53:54 zzolo Exp $
+
+/**
+ * @file
+ * Main OpenLayers Test Module file
+ *
+ * This file contains a test module to help with automated
+ * testing.
+ *
+ * @ingroup openlayers
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+function openlayers_test_menu() {
+  $items = array();
+
+  $items['admin/settings/openlayers/test'] = array(
+    'title' => 'OpenLayers Test Page',
+    'description' => 'Test Page for OpenLayers.',
+    'page callback' => 'openlayers_test_page',
+    'access arguments' => array('administer openlayers'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 9999,
+  );
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_openlayers_presets().
+ */
+function openlayers_test_openlayers_presets() {
+  $presets = array();
+
+  // Create style map array
+  $style_test = array(
+    'projection' => '4326',
+    'width' => 'auto',
+    'default_layer' => 'openlayers_default_wms',
+    'height' => '300px',
+    'center' => array(
+      'lat' => '0',
+      'lon' => '0',
+      'zoom' => '2',
+    ),
+    'options' => array(
+      'displayProjection' => '4326',
+    ),
+    'controls' => array(
+      'LayerSwitcher' => TRUE,
+      'Navigation' => TRUE,
+      'PanZoomBar' => TRUE,
+      'MousePosition' => TRUE,
+    ),
+    'behaviors' => array(
+      'openlayers_behaviors_fullscreen_test' => array(
+        'id' => 'openlayers_behaviors_fullscreen_test',
+        'type' => 'openlayers_behaviors_fullscreen',
+      ),
+    ),
+    'styles' => array(
+      'default' => array(
+        'pointRadius' => 10,
+        'fillColor' => '#333333',
+        'strokeColor' => '#FFFFFF',
+        'strokeWidth' => 4,
+        'fillOpacity' => 0.75,
+      ),
+    ),
+    'layers' => array(
+      'style_vector' => array(
+        'id' => 'style_vector',
+        'type' => 'Vector',
+        'name' => t('Style Test Vector'),
+        'features' => array(
+          'feature_1' => array(
+            'wkt' => 'POLYGON((1 1,5 1,5 5,1 5,1 1),(2 2, 3 2, 3 3, 2 3,2 2))',
+            'attributes' => array(
+              'name' => t('A Polygon with a hole in it'),
+            ),
+            'style' => array(
+              'fillColor' => '#aa4400',
+              'fillOpacity' => '0.7',
+            ),
+          ),
+          'feature_2' => array(
+            'lat' => '40.123',
+            'lon' => '-20.123',
+            'attributes' => array(
+              'name' => t('A point'),
+            ),
+            'style' => array(
+              'externalGraphic' => 'http://openlayers.org/dev/img/marker.png',
+              'graphicWidth' => 21,
+              'graphicHeight' => 25,
+              'graphicXOffset' => 10,
+              'graphicYOffset' => 10,
+            ),
+          ),
+          'feature_3' => array(
+            'wkt' => 'POINT(-20.123 -20.123)',
+            'attributes' => array(
+              'name' => t('Another point'),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+
+  // Create full preset array
+  $presets['style_test'] = array(
+    'preset_name' => 'style_test',
+    'preset_title' => t('Test: Styles per Feature'),
+    'preset_description' => t('This is a test preset.'),
+    'preset_data' => $style_test,
+  );
+  
+  // Context styleing map
+  $style_test = array(
+    'projection' => '4326',
+    'width' => 'auto',
+    'default_layer' => 'openlayers_default_wms',
+    'height' => '300px',
+    'center' => array(
+      'lat' => '0',
+      'lon' => '0',
+      'zoom' => '2',
+    ),
+    'options' => array(
+      'displayProjection' => '4326',
+    ),
+    'controls' => array(
+      'LayerSwitcher' => TRUE,
+      'Navigation' => TRUE,
+      'PanZoomBar' => TRUE,
+      'MousePosition' => TRUE,
+    ),
+    'styles' => array(
+      'default' => array(
+        'pointRadius' => '${getRadius}',
+        'fillColor' => '${getColor}',
+        'strokeColor' => '${getColor}',
+        'strokeWidth' => 1,
+        'fillOpacity' => 0.95,
+      ),
+    ),
+    'styleContextCallback' => 'OLTest.Testing.StyleContextCallback',
+    'layers' => array(
+      'style_vector' => array(
+        'id' => 'style_vector',
+        'type' => 'Vector',
+        'name' => t('Style Test Vector'),
+      ),
+    ),
+  );
+
+  // Add points to work with style context
+  $features = array();
+  for ($i = 0; $i < 30; $i++) {
+    $x = 2 + rand(-30, 30);
+    $y = 2 + rand(-30, 30);
+    $features['feature_' . $i . $j] = array(
+      'wkt' => 'POINT(' . $x . ' ' . $y . ')',
+      'projection' => '4326',
+    );
+  }
+  $style_test['layers']['style_vector']['features'] = $features;
+
+  // Create full preset array
+  $presets['context_style_test'] = array(
+    'preset_name' => 'context_style_test',
+    'preset_title' => t('Test: Context Styling'),
+    'preset_description' => t('This is a test preset.'),
+    'preset_data' => $style_test,
+  );
+  
+  // Attribute replacement styleing map
+  $style_test = array(
+    'projection' => '4326',
+    'width' => 'auto',
+    'default_layer' => 'openlayers_default_wms',
+    'height' => '300px',
+    'center' => array(
+      'lat' => '0',
+      'lon' => '0',
+      'zoom' => '2',
+    ),
+    'options' => array(
+      'displayProjection' => '4326',
+    ),
+    'controls' => array(
+      'LayerSwitcher' => TRUE,
+      'Navigation' => TRUE,
+      'PanZoomBar' => TRUE,
+      'MousePosition' => TRUE,
+    ),
+    'styles' => array(
+      'default' => array(
+        'pointRadius' => '${radius}',
+        'fillColor' => '${color}',
+        'strokeColor' => '${color}',
+        'strokeWidth' => 4,
+        'fillOpacity' => 0.95,
+      ),
+    ),
+    'layers' => array(
+      'style_vector' => array(
+        'id' => 'style_vector',
+        'type' => 'Vector',
+        'name' => t('Style Test Vector'),
+      ),
+    ),
+  );
+
+  // Add points to work with style context
+  $features = array();
+  $colors = array('red', 'blue', 'yellow', 'purple');
+  for ($i = 0; $i < 30; $i++) {
+    $x = 2 + rand(-30, 30);
+    $y = 2 + rand(-30, 30);
+    $features['feature_' . $i . $j] = array(
+      'wkt' => 'POINT(' . $x . ' ' . $y . ')',
+      'projection' => '4326',
+      'attributes' => array(
+        'radius' => rand(7, 12),
+        'color' => $colors[rand(0, count($colors) - 1)],
+      ),
+    );
+  }
+  $style_test['layers']['style_vector']['features'] = $features;
+
+  // Create full preset array
+  $presets['attribute_style_test'] = array(
+    'preset_name' => 'attribute_style_test',
+    'preset_title' => t('Test: Attribute Replacement Styling'),
+    'preset_description' => t('This is a test preset.'),
+    'preset_data' => $style_test,
+  );
+
+  // Cluster and Grouping preset
+  $map = $default_map;
+
+  $map['behaviors'] = array(
+    'clusterone' => array(
+      'id' => 'clusterone',
+      'type' => 'openlayers_behaviors_cluster',
+      'layer' => 'default_vector',
+      'distance' => '20',
+      'threshold' => '1',
+    ),
+    'clustertwo' => array(
+      'id' => 'clustertwo',
+      'type' => 'openlayers_behaviors_cluster',
+      'layer' => 'second_vector',
+    ),
+    'fullscreen' => array(
+      'id' => 'fullscreen',
+      'type' => 'openlayers_behaviors_fullscreen',
+    ),
+  );
+  $map['layers']['default_vector'] = array(
+    'id' => 'default_vector',
+    'type' => 'Vector',
+    'name' => t('Default Vector'),
+    'options' => array(),
+  );
+
+  // Add points
+  $features = array();
+  for ($i = 0; $i < 30; $i++) {
+    $x = 2 + rand(-10, 10);
+    $y = 2 + rand(-10, 10);
+    $features['feature_' . $i . $j] = array(
+      'wkt' => 'POINT(' . $x . ' ' . $y . ')',
+      'projection' => '4326',
+    );
+  }
+  $map['layers']['default_vector']['features'] = $features;
+
+  $map['layers']['second_vector'] = array(
+    'id' => 'second_vector',
+    'type' => 'Vector',
+    'name' => t('second Vector'),
+    'options' => array(),
+    'features' => array(
+      'yeah3' => array(
+        'wkt' => 'POINT(55 -55)',
+        'projection' => '4326',
+      ),
+      'yeah4' => array(
+        'wkt' => 'POINT(50 -50)',
+        'projection' => '4326',
+      ),
+    ),
+  );
+
+  // Create full preset array
+  $presets['cluster_group_example'] = array(
+    'preset_name' => 'cluster_group_example',
+    'preset_title' => t('Test: Cluster Group'),
+    'preset_description' => t('This is a test preset.'),
+    'preset_data' => $map,
+  );
+  
+  // Tooltip
+  $map = array(
+    'projection' => '4326',
+    'width' => 'auto',
+    'default_layer' => 'openlayers_default_wms',
+    'height' => '300px',
+    'center' => array(
+      'lat' => '0',
+      'lon' => '0',
+      'zoom' => '2',
+    ),
+    'options' => array(
+      'displayProjection' => '4326',
+    ),
+    'controls' => array(
+      'LayerSwitcher' => TRUE,
+      'Navigation' => TRUE,
+      'PanZoomBar' => TRUE,
+      'MousePosition' => TRUE,
+    ),
+    'styles' => array(
+      'default',
+    ),
+    'layers' => array(
+      'vector' => array(
+        'id' => 'vector',
+        'type' => 'Vector',
+        'name' => t('Test Vector'),
+      ),
+    ),
+    'behaviors' => array(
+      'openlayers_views_tooltip_vector' => array(
+        'id' => 'openlayers_views_tooltip_vector',
+        'type' => 'openlayers_behaviors_tooltip',
+        'layer' => 'vector',
+        'attribute' => 'openlayers_tooltip',
+      ),
+    ),
+  );
+
+  // Add points to work with style context
+  $features = array();
+  for ($i = 0; $i < 30; $i++) {
+    $x = 2 + rand(-30, 30);
+    $y = 2 + rand(-30, 30);
+    $features['feature_' . $i . $j] = array(
+      'wkt' => 'POINT(' . $x . ' ' . $y . ')',
+      'projection' => '4326',
+      'attributes' => array(
+        'openlayers_tooltip' => t('Feature') . ': ' . $i,
+      ),
+    );
+  }
+  $map['layers']['vector']['features'] = $features;
+
+  // Create full preset array
+  $presets['tooltip_test'] = array(
+    'preset_name' => 'tooltip_test',
+    'preset_title' => t('Test: Tooltips'),
+    'preset_description' => t('This is a test preset.'),
+    'preset_data' => $map,
+  );
+  
+  // Popups
+  $map = array(
+    'projection' => '4326',
+    'width' => 'auto',
+    'default_layer' => 'openlayers_default_wms',
+    'height' => '300px',
+    'center' => array(
+      'lat' => '0',
+      'lon' => '0',
+      'zoom' => '2',
+    ),
+    'options' => array(
+      'displayProjection' => '4326',
+    ),
+    'controls' => array(
+      'LayerSwitcher' => TRUE,
+      'Navigation' => TRUE,
+      'PanZoomBar' => TRUE,
+      'MousePosition' => TRUE,
+    ),
+    'styles' => array(
+      'default',
+    ),
+    'layers' => array(
+      'vector' => array(
+        'id' => 'vector',
+        'type' => 'Vector',
+        'name' => t('Test Vector'),
+      ),
+    ),
+    'behaviors' => array(
+      'openlayers_popups' => array(
+        'id' => 'openlayers_popups',
+        'type' => 'openlayers_behaviors_popup',
+        'attribute' => 'openlayers_popup',
+      ),
+      'openlayers_zoom_to_layer' => array(
+        'id' => 'openlayers_zoom_to_layer',
+        'type' => 'openlayers_behaviors_zoom_to_layer',
+        'layer' => 'vector',
+      ),
+    ),
+  );
+
+  // Add points to work with style context
+  $features = array();
+  for ($i = 0; $i < 30; $i++) {
+    $x = 2 + rand(-30, 30);
+    $y = 2 + rand(-30, 30);
+    $features['feature_' . $i] = array(
+      'wkt' => 'POINT(' . $x . ' ' . $y . ')',
+      'projection' => '4326',
+      'attributes' => array(
+        'openlayers_popup' => t('Feature') . ': ' . $i,
+      ),
+    );
+  }
+  $map['layers']['vector']['features'] = $features;
+
+  // Create full preset array
+  $presets['popup_test'] = array(
+    'preset_name' => 'popup_test',
+    'preset_title' => t('Test: Popups and Zoom to Layer'),
+    'preset_description' => t('This is a test preset.'),
+    'preset_data' => $map,
+  );
+
+  return $presets;
+}
+
+/**
+ * Callback for OpenLayers Test Page
+ */
+function openlayers_test_page() {
+  $output = '';
+
+  // Add some extra testing JS
+  drupal_add_js(drupal_get_path('module', 'openlayers_test') . '/js/openlayers_test.js');
+
+  // Render all maps
+  $presets = openlayers_get_presets();
+  foreach ($presets as $name => $title) {
+    $rendered = openlayers_render_map($name);
+    if ($rendered['themed']) {
+      $output .= '
+        <h3> ' . $title . '</h3>
+        ' . $rendered['themed'] . '
+      ';
+    }
+  }
+
+  // Create collapsed fieldset
+  $render_fieldset = openlayers_render_map();
+  $element = array(
+    '#value' => $render_fieldset['themed'],
+    '#title' => t('Fieldset Example'),
+    '#collapsed' => TRUE,
+    '#collapsible' => TRUE,
+  );
+  $fieldset = theme_fieldset($element);
+
+  // Create output
+  $output .= '
+    <!-- Not including fieldset cause its broken -->
+  ';
+
+  return $output;
+}

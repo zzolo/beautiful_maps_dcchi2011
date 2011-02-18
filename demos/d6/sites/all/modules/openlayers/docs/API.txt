@@ -1,0 +1,17 @@
+This file contains the main API functions for
+OpenLayers and its sub-modules.  Please refer to the
+project page for more up to date information and
+documentation:
+  * http://drupal.org/project/openlayers
+
+
+ Advanced Help
+======================================================
+Browsable documentation is available through the Advanced
+Help module.
+  * http://drupal.org/project/advanced_help
+
+
+ OpenLayers Hooks
+======================================================
+See: openlayers.api.php
