@@ -1,20 +1,17 @@
 <?php
-// $Id: openlayers_cck.feeds.inc,v 1.1.2.1 2010/03/02 22:03:30 zzolo Exp $
+// $Id: openlayers_cck.feeds.inc,v 1.1.4.3 2010/03/22 23:55:10 zzolo Exp $
 
 /**
  * @file
- * This file holds the Feeds module integration
- * with the OpenLayers CCK module.
- *
- * @ingroup openlayers
+ * File for feeds module integration
  */
 
 /**
- * Implementation of feeds_node_processor_targets_alter().
+ * Private function for hook of same name.
  *
  * Enable mapping to openlayer_wkt fields for feeds
  */
-function openlayers_cck_feeds_node_processor_targets_alter(&$targets, $content_type) {
+function _openlayers_cck_feeds_node_processor_targets_alter(&$targets, $content_type) {
   $info = content_types($content_type);
   $fields = array();
   if (isset($info['fields']) && count($info['fields'])) {

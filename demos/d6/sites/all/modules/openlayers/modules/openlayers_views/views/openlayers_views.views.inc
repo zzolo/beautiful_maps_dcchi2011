@@ -1,5 +1,5 @@
 <?php
-// $Id: openlayers_views.views.inc,v 1.1.2.3 2009/08/06 04:42:06 binarybill Exp $
+// $Id: openlayers_views.views.inc,v 1.3.2.3 2010/02/03 19:08:13 tmcw Exp $
 
 /**
  * @file
@@ -14,20 +14,46 @@
 function openlayers_views_views_plugins() {
   return array(
     'module' => 'openlayers_views',
+    'display' => array(
+      'openlayers' => array(
+        'title' => t('OpenLayers Data'),
+        'help' => t('Data layer for OpenLayers maps.'),
+        'handler' => 'openlayers_views_plugin_display_openlayers',
+        'path' => drupal_get_path('module', 'openlayers_views') .'/views',
+        'uses hook menu' => FALSE,
+        'use ajax' => FALSE,
+        'use pager' => FALSE,
+        'accept attachments' => FALSE,
+        'admin' => t('OpenLayers Data'),
+      ),
+    ),
     'style' => array(
-      'openlayers_views' => array(
-        'title' => t('OpenLayers'),
-        'help' => t('Displays nodes as an OpenLayers map.'),
+      'openlayers_map' => array(
+        'title' => t('OpenLayers Map'),
+        'help' => t('Displays a View as an OpenLayers map.'),
         'handler' => 'openlayers_views_style_map',
         'theme' => 'openlayers_views_map',
-        'theme file' => 'openlayers_views.views.theme.inc',
+        'theme path' => drupal_get_path('module', 'openlayers_views') .'/views',
+        'path' => drupal_get_path('module', 'openlayers_views') .'/views',
+        'uses fields' => FALSE,
+        'uses row plugin' => FALSE,
+        'uses options' => TRUE,
+        'uses grouping' => FALSE,
+        'type' => 'normal',
+        'even empty' => TRUE,
+      ),
+      'openlayers_data' => array(
+        'title' => t('OpenLayers Data'),
+        'help' => t('Provides Data to Power an OpenLayers map.'),
+        'handler' => 'openlayers_views_style_data',
+        'theme' => 'openlayers_views_data',
         'theme path' => drupal_get_path('module', 'openlayers_views') .'/views',
         'path' => drupal_get_path('module', 'openlayers_views') .'/views',
         'uses fields' => TRUE,
-        'uses row plugin' => TRUE,
+        'uses row plugin' => FALSE,
         'uses options' => TRUE,
         'uses grouping' => TRUE,
-        'type' => 'normal',
+        'type' => 'openlayers',
         'even empty' => TRUE,
       ),
     ),

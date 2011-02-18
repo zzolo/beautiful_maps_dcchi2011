@@ -1,5 +1,5 @@
 <?php
-// $Id: openlayers_cck.install,v 1.2.2.4 2010/02/15 21:47:49 zzolo Exp $
+// $Id: openlayers_cck.install,v 1.4 2009/09/21 04:36:31 zzolo Exp $
 
 /**
  * @file
@@ -16,13 +16,6 @@ function openlayers_cck_enable() {
   // Let content/cck know about our actions
   drupal_load('module', 'content');
   content_notify('enable', 'openlayers_cck');
-
-  // As needed for upgrading to 2.x (while accounting
-  // for 0.x), we set a variable that can help
-  // the upgrade function in 2.x understand what needs
-  // to be done.  Note, it is not meant to actually
-  // maintain the schema version.
-  variable_set('openlayers_cck_schema_version', 6100);
 }
 
 /**
@@ -57,53 +50,4 @@ function openlayers_cck_uninstall() {
   while ($row = db_fetch_array($results)) {
     variable_del($row['name']);
   }
-}
-
-/**
- * Implementation of hook_update_N().
- *
- * For the CCK Map formatters, the new default is to not
- * show empty maps, so this update attempts to
- * set that default to TRUE.
- *
- * No need for translation in update function:
- * http://drupal.org/node/322731
- */
-function openlayers_cck_update_6100(&$sandbox) {
-  $ret = array();
-
-  // Get each field instance
-  $query = "SELECT * FROM {content_node_field_instance} WHERE widget_type = 'openlayers_wkt_widget'";
-  $results = db_query($query);
-  while ($row = db_fetch_object($results)) {
-    // Get current widget settings and update
-    $widget_settings = unserialize($row->widget_settings);
-    $widget_settings['openlayers_cck_show_empty_map'] = TRUE;
-    $widget_settings = serialize($widget_settings);
-    $query = "UPDATE {content_node_field_instance} SET widget_settings = '%s'";
-    $result = db_query($query, $widget_settings);
-  }
-
-  return $ret;
-}
-
-/**
- * Implementation of hook_update_N().
- *
- * No need for translation in update function:
- * http://drupal.org/node/322731
- */
-function openlayers_cck_update_6101(&$sandbox) {
-  // As needed for upgrading to 2.x (while accounting
-  // for 0.x), we set a variable that can help
-  // the upgrade function in 2.x understand what needs
-  // to be done.  Note, it is not meant to actually
-  // maintain the schema version.
-  variable_set('openlayers_cck_schema_version', 6100);
-  return array(
-    0 => array(
-      'success' => TRUE,
-      'query' => 'Setup for upgrading to 2.x: openlayers_cck_schema_version',
-    ),
-  );
 }

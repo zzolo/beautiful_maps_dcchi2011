@@ -1,5 +1,5 @@
 <?php
-// $Id: openlayers_views.views.theme.inc,v 1.1.2.2 2009/08/06 04:42:06 binarybill Exp $
+// $Id: openlayers_views.views.theme.inc,v 1.3.2.1 2009/09/27 21:24:09 phayes Exp $
 
 /**
  * @file
@@ -11,10 +11,12 @@
 /**
  * Implementation of theme function
  */
-function theme_openlayers_views_map($view, $options = array(), $map = array()) {
+function theme_openlayers_views_map($view, $options = array(), $map = array(), $title = FALSE) {
+  $title = ($title) ? '<h3>'. $title .'</h3>' : '';
   $output = '
+    '. $title .'
     <div class="openlayers-views-map">
-      ' . $map['themed'] . '
+      '. $map['themed'] .'
     </div>
   ';
 

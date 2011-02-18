@@ -1,9 +1,10 @@
 <?php
-// $Id: openlayers.api.php,v 1.1.2.5 2009/09/14 00:39:51 zzolo Exp $
+// $Id: openlayers.api.php,v 1.2.2.6 2010/10/13 09:03:58 strk Exp $
 
 /**
  * @file
- * Hooks provided by the OpenLayers suite of modules.
+ * Hooks provided by the OpenLayers suite of modules.  This file allows
+ * hooks to be documented automatically with Doxygen, like on api.drupal.org.
  *
  * @ingroup openlayers
  */
@@ -41,204 +42,273 @@ function hook_openlayers_map_alter(&$map = array()) {
 }
 
 /**
- * OpenLayers Layer Handler Info
+ * OpenLayers Layer Types
  *
- * Provides information on layer handlers.  Every layer needs
- * to have a valid type (layer handler).
+ * Provides information on layer types.  This is a CTools plugin.  Please
+ * see LAYER_TYPES.txt in the module for more information.
  *
- * @param $map
- *   Map array of map being rendered
  * @return
  *   Return a nested associative array with the top level
  *   being a unique string identifier key which corresponds to the
  *   layers' types.  The next level being an array of key/value
  *   pairs:
- *   - "layer_handler": This is the JS callback name that will
- *     belong to OL.Layers object.
- *   - "js_file": The JS file to include to look for the callback.
+ *   - "description": 
+ *   - "layer_type": 
  */
-function hook_openlayers_layers_handler_info($map = array()) {
-  // Take from openlayers.module
+function hook_openlayers_layer_types() {
+  // Take from openlayers.layer_types.inc
 
   return array(
-    'WMS' => array(
-      'layer_handler' => 'WMS',
-      'js_file' => drupal_get_path('module', 'openlayers') .'/js/openlayers.layers.js',
-    ),
-    'Vector' => array(
-      'layer_handler' => 'Vector',
-      'js_file' => drupal_get_path('module', 'openlayers') .'/js/openlayers.layers.js',
+    'openlayers_layer_type_google' => array(
+      'title' => t('Google'),
+      'description' => t('Google Maps API Map'),
+      'layer_type' => array(
+        'path' => drupal_get_path('module', 'openlayers') .'/includes/layer_types',
+        'file' => 'google.inc',
+        'class' => 'openlayers_layer_type_google',
+        'parent' => 'openlayers_layer_type',
+      ),
     ),
   );
 }
 
 /**
- * OpenLayers Layers Info
+ * CTools Registration Hook
+ *
+ * IMPORTANT:
+ *
+ * In order to support styles, presets, and layers in an external module,
+ * one must notify the CTools module that that module provides implementations 
+ * of the hooks for styles, presets, and/or layers.
+ *
+ * This function is just an example implementation of 
+ * hook_ctools_plugin_api() and should be alter according to
+ * your module's name.
+ *
+ * @param $module
+ *   Name of a module that supports CTools exportables.
+ * @param $api
+ *   Name of the kind of exportable supported.
+ * @return
+ *  If $module is 'openlayers', and $api is a type of exportable that
+ *  your module provides, and you are using Openlayers 2.x, then
+ *  return array with the following values:
+ *  - version => 1
+ */
+function openlayers_example_ctools_plugin_api($module, $api) {
+  if ($module == "openlayers") {
+    switch ($api) {
+      case 'openlayers_presets':
+        return array('version' => 1);
+
+      case 'openlayers_layers':
+        return array('version' => 1);
+
+      case 'openlayers_styles':
+        return array('version' => 1);
+
+    }
+  }
+}
+
+/**
+ * OpenLayers Layers
  *
  * This hook tells OpenLayers about the available layers
- * that can be used by name in maps.  Layers can still be defined
- * manually, but this allows for easy calling of layers,
- * and these will show up in the Preset UI.
- *
- * @return
- *   Return a nested associative array with the top level
- *   being a unique string identifier, and the nested array
- *   containing the following key/pairs:
- *   - "name": Translated name of the layer.  This will show up
- *     in the Preset UI.
- *   - "description": Translates description.
- *   - "file": The Drupal path for where the callback is stored
- *   - "callback": The name of the PHP function that will be called
- *     when the layer is rendered
- *   - "projection": An array of projections that the layer is
- *     compatible with.  Leave empty if compatible with all.
- *   - "baselayer": Boolean whether the layer is a base layer
- *     or not.
- */
-function hook_openlayers_layers_info() {
-  // Taken from openlayers.module
-
-  // Define info array
-  $info['openlayers_default_wms'] = array(
-    'name' => t('Default OpenLayers WMS'),
-    'description' => t('A simple basemap to get you started'),
-    'file' => drupal_get_path('module', 'openlayers') .'/includes/openlayers.layers.inc',
-    'callback' => 'openlayers_process_layers',
-    'projection' => array('4326', '900913', '4269'),
-    'baselayer' => TRUE,
-  );
-
-  return $info;
-}
-
-/**
- * OpenLayers Behaviors Info
- *
- * This hook tells OpenLayers about the available behaviors
  * that can be used by name in maps.
  *
+ * Ensure that you are telling CTools about this as well.
+ * @see openlayers_example_ctools_plugin_api().
+ *
+ * Please note, that to support translation for exportable
+ * code for potx extraction, you should include separate code
+ * of translatable string.
+ *
  * @return
- *   Return a nested associative array with the top level
- *   being a unique string identifier, and the nested array
- *   containing the following key/pairs:
- *   - "name": Translated name of the behavior.
- *   - "description": Translates description.
- *   - "file": The Drupal path for where the PHP callback is stored
- *   - "callback": The name of the PHP function that will be called
- *     when the behavior is rendered
- *   - "js_file": The Drupal path for where the JS callback is stored
- *   - "js_callback": The name of the JS function that will be called
- *     when the behavior is rendered.  This will be a function of the
- *     OL.Behaviors object
+ *   Return an associative array with index being a unique string 
+ *   identifier, and simple objects with the following properties:
+ *   - "api_version": 
+ *   - "name": 
+ *   - "title": 
+ *   - "data": 
  */
-function hook_openlayers_behaviors_info() {
-  // Taken from openlayers_behaviors.module
+function hook_openlayers_layers() {
+  // Taken from openlayers.layers.inc
 
-  $file = drupal_get_path('module', 'openlayers_behaviors') .'/includes/openlayers_behaviors.behaviors.inc';
-  $js_file = drupal_get_path('module', 'openlayers_behaviors') .'/js/openlayers_behaviors.behaviors.js';
-  $info = array();
-
-  // Define info array
-  $info['openlayers_behaviors_zoom_to_layer'] = array(
-    'name' => t('Zoom to Layer'),
-    'description' => t('When the map is finished loading, zoom to the features contained within the given layer'),
-    'file' => $file,
-    'callback' => 'openlayers_behaviors_process_zoom_to_layer',
-    'js_file' => $js_file,
-    'js_callback' => 'zoomToLayer',
+  $layers = array();
+  $layer = new stdClass();
+  $layer->api_version = 1;
+  $layer->name = 'google_satellite';
+  $layer->title = 'Google Maps Satellite';
+  $layer->description = 'Google Maps Satellite Imagery.';
+  $layer->data = array(
+    'baselayer' => TRUE,
+    'type' => 'satellite',
+    'projection' => array('900913'),
+    'layer_type' => 'openlayers_layer_type_google',
   );
-
-  return $info;
+  $layers[$layer->name] = $layer;
+  return $layers;
+  
+  // Extra code to support potx extractors
+  $potx = array(
+    t('Google Maps Satellite'),
+    t('Google Maps Satellite Imagery.'),
+  );
 }
 
 /**
- * OpenLayers Style Info
+ * OpenLayers Behaviors
  *
- * This hook tells OpenLayers about the available styles
- * that can be used by name in maps.  These will show up
- * in the Preset UI.
+ * This hook tells OpenLayers about the available behaviors
+ * that can be used in maps.
+ *
+ * Ensure that you are telling CTools about this as well.
+ * @see openlayers_example_ctools_plugin_api().
  *
  * @return
  *   Return a nested associative array with the top level
  *   being a unique string identifier, and the nested array
  *   containing the following key/pairs:
- *   - "name": Translated name of the style.
- *   - "description": Translated description.
- *   - "file": The Drupal path for where the PHP callback is stored
- *   - "callback": The name of the PHP function that will be called
- *     when the behavior is rendered
+ *   - "title": 
+ *   - "description": 
+ *   - "file": 
+ *   - "type": 
+ *   - "behavior": 
  */
-function hook_openlayers_styles_info() {
-  // Taken from openlayers.module
+function hook_openlayers_behaviors() {
+  // Taken from openlayers.behaviors.inc
 
-  // Define info array
-  $info['default'] = array(
-    'name' => t('Default Style'),
-    'description' => t('Basic default style.'),
-    'file' => drupal_get_path('module', 'openlayers') .'/includes/openlayers.styles.inc',
-    'callback' => 'openlayers_process_styles',
+  return array(
+    'openlayers_behavior_attribution' => array(
+      'title' => t('Attribution'),
+      'description' => t('Allows layers to provide attribution to the map if it exists.'),
+      'type' => 'layer',
+      'path' => drupal_get_path('module', 'openlayers') .'/includes/behaviors',
+      'file' => 'openlayers_behavior_attribution.inc',
+      'behavior' => array(
+        'class' => 'openlayers_behavior_attribution',
+        'parent' => 'openlayers_behavior',
+      ),
+    ),
   );
-  $info['default_select'] = array(
-    'name' => t('Default Select Style'),
-    'description' => t('Default style for selected geometries'),
-    'file' => drupal_get_path('module', 'openlayers') .'/includes/openlayers.styles.inc',
-    'callback' => 'openlayers_process_styles',
-  );
+}
 
-  return $info;
+/**
+ * OpenLayers Styles
+ *
+ * This hook tells OpenLayers about the available styles
+ * that can be used in maps.
+ *
+ * Ensure that you are telling CTools about this as well.
+ * @see openlayers_example_ctools_plugin_api().
+ *
+ * @return
+ *   Return an associative array with index being a unique string 
+ *   identifier, and simple objects with the following properties:
+ *   - "api_version": 
+ *   - "name": 
+ *   - "title": 
+ *   - "data":
+ */
+function hook_openlayers_styles() {
+  // Taken from openlayers.styles.inc
+
+  $styles = array();
+
+  $style = new stdClass();
+  $style->api_version = 1;
+  $style->name = 'default';
+  $style->title = t('Default style');
+  $style->description = t('Basic default style.');
+  $style->data = array(
+    'pointRadius' => '5',
+    'fillColor' => '#FFCC66',
+    'strokeColor' => '#FF9933',
+    'strokeWidth' => '4',
+    'fillOpacity' => '0.5'
+  );
+  $styles[$style->name] = $style;
+
+  return $styles;
 }
 
 /**
  * OpenLayers Presets
  *
- * This hook lets other modules define map presets that
- * the user can choose from in various places, or
- * clone.
+ * Define map presets.
  *
  * @return
- *   Return a nested associative array with the top level
- *   being a unique string identifier, and the nested array
- *   containing the following key/pairs:
- *   - "preset_name": Unique string with only lowercase characters
- *     and underscores.
- *   - "preset_title": Translated title to be used listing presets.
- *   - "preset_description": Translated description.
- *   - "preset_data": The unrenderd map array
+ *   Return an associative array with index being a unique string 
+ *   identifier, and simple objects with the following properties:
+ *   - "api_version": 
+ *   - "name": 
+ *   - "title": 
+ *   - "data":
  */
 function hook_openlayers_presets() {
-  // Taken from openlayers.module
+  // Taken from openlayers.presets.inc
 
-  $presets = array();
-
-  // Create map array
-  $default_map = array(
-    'projection' => '4326',
+  $default = new stdClass();
+  $default->api_version = 1;
+  $default->name = 'default';
+  $default->title = t('Default Map');
+  $default->description = t('This is the default map preset that comes with the OpenLayers module.');
+  $default->data = array(
+    'projection' => '900913',
     'width' => 'auto',
-    'default_layer' => 'openlayers_default_wms',
-    'height' => '300px',
+    'default_layer' => 'osm_mapnik',
+    'height' => '400px',
     'center' => array(
-      'lat' => '0',
-      'lon' => '0',
-      'zoom' => '2',
+      'initial' => array(
+        'centerpoint' => '0,0',
+        'zoom' => '2'
+      )
     ),
     'options' => array(
       'displayProjection' => '4326',
+      'maxExtent' => openlayers_get_extent('4326'),
     ),
-    'controls' => array(
-      'LayerSwitcher' => TRUE,
-      'Navigation' => TRUE,
-      'PanZoomBar' => TRUE,
-      'MousePosition' => TRUE,
+    'behaviors' => array(
+      'openlayers_behavior_panzoombar' => array(),
+      'openlayers_behavior_layerswitcher' => array(),
+      'openlayers_behavior_attribution' => array(),
+      'openlayers_behavior_keyboarddefaults' => array(),
+      'openlayers_behavior_navigation' => array(),
     ),
+    'layers' => array(
+      'osm_mapnik' => 'osm_mapnik',
+    )
   );
+  return array('default' => $default);
+}
 
-  // Create full preset array
-  $presets['default'] = array(
-    'preset_name' => 'default',
-    'preset_title' => t('Default Map'),
-    'preset_description' => t('This is the default map preset that comes with the OpenLayers module.'),
-    'preset_data' => $default_map,
-  );
-
-  return $presets;
+/**
+ * CTools Registration Hook (Style Plugins)
+ *
+ * IMPORTANT:
+ *
+ * In order to support style plugins, the first step is to
+ * tell CTools where to find the plugin.
+ *
+ * This function is just an example implementation of 
+ * hook_ctools_plugin_directory() and should be alter according to
+ * your module's name.
+ *
+ * For an example, please see the openlayers_test.module
+ *
+ * @param $module
+ *   Name of a module that supports CTools exportables.
+ * @param $plugin
+ *   Name of the kind of plugin supported.
+ * @return
+ *  If $module is 'openlayers', and $api is a type of exportable that
+ *  your module provides, and you are using Openlayers 2.x, then
+ *  return the directory relative to a module to look for this
+ *  particular plugin.
+ */
+function openlayers_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'openlayers' && $plugin == 'style_plugin') {
+    return 'plugins/style_plugin';
+  }
 }

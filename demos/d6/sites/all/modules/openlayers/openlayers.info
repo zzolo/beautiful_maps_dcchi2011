@@ -1,12 +1,13 @@
-; $Id: openlayers.info,v 1.5.2.1 2009/09/28 17:16:10 phayes Exp $
+; $Id: openlayers.info,v 1.7.2.2 2009/09/28 17:23:18 phayes Exp $
 name = OpenLayers
 description = OpenLayers base API module
 core = 6.x
 package = OpenLayers
 php = 5.2
-; Information added by drupal.org packaging script on 2010-07-15
-version = "6.x-1.x-dev"
+dependencies[] = ctools
+; Information added by drupal.org packaging script on January 1, 1970 - 00:00
+version = "6.x-2.x-dev"
 core = "6.x"
 project = "openlayers"
-datestamp = "1279152770"
+datestamp = "1296520025"
 
