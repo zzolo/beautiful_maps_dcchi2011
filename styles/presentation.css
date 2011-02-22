@@ -80,15 +80,15 @@ li:last-child { border-bottom: none; padding-bottom: 0; }
 #header, #footer {
   background: #444444;
   color: #BBBBBB;
-  font-size: 14px; 
-  line-height: 14px;
+  font-size: 10px; 
+  line-height: 10px;
   position: fixed;
   width: 100%;
   z-index: 10;
 }
 #header { top: 0; }
 #footer { bottom: 0; text-align: right; }
-#header .container, #footer .container { padding: 20px; }
+#header .container, #footer .container { padding: 10px; }
 		
 /**
  * Slide parts
@@ -106,12 +106,12 @@ label { font-weight: bold; }
 /**
  * Navigation
  */
-.nav-pager, .nav-prev-next { font-size: 14px; line-height: 14px; list-style: none; margin: 0; overflow: hidden; position: fixed; z-index: 100; }
+.nav-pager, .nav-prev-next { font-size: 10px; line-height: 10px; list-style: none; margin: 0; overflow: hidden; position: fixed; z-index: 100; }
 .nav-pager li, .nav-prev-next li { border: none; float: left; padding: 0; }
 .nav-pager a, .nav-prev-next a { display: block; line-height: 12px; }
 .nav-pager { bottom: 0; left: 20px; }
 .nav-pager li { margin-right: 10px; }
-.nav-pager a, .nav-prev-next a { background: #FF7AE4; color: rgba(26,31,30,0.5); padding: 10px 5px; text-decoration: none; }
+.nav-pager a, .nav-prev-next a { background: #FF7AE4; color: rgba(26,31,30,0.5); padding: 6px 3px; text-decoration: none; }
 .nav-pager .current a, .nav-prev-next a:hover { background: #FF3DD8; color: #FFFFFF; }
 .nav-prev-next { right: 20px; top: 0; }
 .nav-prev-next li { margin-left: 10px; }
@@ -120,8 +120,8 @@ label { font-weight: bold; }
  * Title page
  */
 .title-page h2 {
-  margin-top: .5em;
-  margin-bottom: 0;
+  margin-top: .2em;
+  margin-bottom: .2em;
   font-size: 3em;
   text-align: center;
 }
@@ -129,9 +129,10 @@ label { font-weight: bold; }
   text-align: center;
 }
 .authors {
-  margin-top: 13em;
+  margin-top: 4em;
   margin-bottom: 0;
   color: #BBBBBB;
+  text-align: center;
 }
 .title-page {
   background-color: transparent;
@@ -139,6 +140,11 @@ label { font-weight: bold; }
   background-repeat: no-repeat;
   background-position: 475px 240px;
   padding-bottom: 50px;
+}
+.title-page img {
+  text-align: center;
+  margin-left: -65px;
+  margin-top: 3em;
 }
 
 /**
