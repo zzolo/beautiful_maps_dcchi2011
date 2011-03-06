@@ -1,0 +1,229 @@
+<?php
+
+/**
+ * @file
+ * Install file for mapping module
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function mapping_uninstall() {
+  // Remove any variables
+}
+
+/**
+ * Implements hook_schema().
+ */
+function mapping_schema() {
+  $schema = array();
+
+  // Map objects
+  $schema['mapping_maps'] = array(
+    'description' => 'Mapping objects.',
+    'export' => array(
+      'key' => 'name',
+      'key name' => 'Name',
+      'primary key' => 'mid',
+      'identifier' => 'mapping_maps',
+      'default hook' => 'mapping_maps',
+      'api' => array(
+        'owner' => 'mapping',
+        'api' => 'mapping_maps',
+        'minimum_version' => 1,
+        'current_version' => 1,
+      ),
+    ),
+    'fields' => array(
+      'mid' => array(
+        'type' => 'serial',
+        'description' => 'A database primary key to ensure uniqueness',
+        'not null' => TRUE,
+        'no export' => TRUE,
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => '255',
+        'description' => 'Unique ID for the map.',
+      ),
+      'title' => array(
+        'type' => 'varchar',
+        'length' => '512',
+        'description' => 'Title for this map.',
+      ),
+      'description' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Description for this map.',
+        'object default' => '',
+      ),
+      'object_type' => array(
+        'type' => 'varchar',
+        'length' => '512',
+        'description' => 'Map type of this map as defined by a map type plugin.',
+      ),
+      'layers' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Serialized array of layers with this map.',
+        'serialize' => TRUE,
+        'object default' => array(),
+      ),
+      'styles' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Serialized array of styles with this map.',
+        'serialize' => TRUE,
+        'object default' => array(),
+      ),
+      'behaviors' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Serialized array of behaviors with this map.',
+        'serialize' => TRUE,
+        'object default' => array(),
+      ),
+      'data' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Serialized settings and data of the map',
+        'serialize' => TRUE,
+        'object default' => array(),
+      ),
+    ),
+    'primary key' => array('mid'),
+    'unique keys' => array(
+      'map_type_name' => array('name'),
+    ),
+    'indexes' => array(
+      'map_type_map_type' => array('object_type'),
+      'map_type_title' => array('title'),
+    ),
+  );
+  
+  // Layer objects
+  $schema['mapping_layers'] = array(
+    'description' => 'Mapping layer objects.',
+    'export' => array(
+      'key' => 'name',
+      'key name' => 'Name',
+      'primary key' => 'lid',
+      'identifier' => 'mapping_layers',
+      'default hook' => 'mapping_layers',
+      'api' => array(
+        'owner' => 'mapping',
+        'api' => 'mapping_layers',
+        'minimum_version' => 1,
+        'current_version' => 1,
+      ),
+    ),
+    'fields' => array(
+      'lid' => array(
+        'type' => 'serial',
+        'description' => 'A database primary key to ensure uniqueness',
+        'not null' => TRUE,
+        'no export' => TRUE,
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => '255',
+        'description' => 'Unique ID for the layer.',
+      ),
+      'title' => array(
+        'type' => 'varchar',
+        'length' => '512',
+        'description' => 'Title for the layer.',
+      ),
+      'description' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Description for the layer.',
+        'object default' => '',
+      ),
+      'object_type' => array(
+        'type' => 'varchar',
+        'length' => '512',
+        'description' => 'Layer type that this layer is.',
+      ),
+      'data' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Serialized settings and data of the layer',
+        'serialize' => TRUE,
+        'object default' => array(),
+      ),
+    ),
+    'primary key' => array('lid'),
+    'unique keys' => array(
+      'layer_type_name' => array('name'),
+    ),
+    'indexes' => array(
+      'layer_type_layer_type' => array('object_type'),
+      'layer_type_title' => array('title'),
+    ),
+  );
+  
+  // Styles objects
+  $schema['mapping_styles'] = array(
+    'description' => 'Mapping styles objects.',
+    'export' => array(
+      'key' => 'name',
+      'key name' => 'Name',
+      'primary key' => 'sid',
+      'identifier' => 'mapping_styles',
+      'default hook' => 'mapping_styles',
+      'api' => array(
+        'owner' => 'mapping',
+        'api' => 'mapping_styles',
+        'minimum_version' => 1,
+        'current_version' => 1,
+      ),
+    ),
+    'fields' => array(
+      'sid' => array(
+        'type' => 'serial',
+        'description' => 'A database primary key to ensure uniqueness',
+        'not null' => TRUE,
+        'no export' => TRUE,
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => '255',
+        'description' => 'Unique ID for the style.',
+      ),
+      'title' => array(
+        'type' => 'varchar',
+        'length' => '512',
+        'description' => 'Title for the style.',
+      ),
+      'description' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Description for the style.',
+        'object default' => '',
+      ),
+      'object_type' => array(
+        'type' => 'varchar',
+        'length' => '256',
+        'description' => 'Style type that this style is.',
+      ),
+      'data' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Serialized settings and data of the style',
+        'serialize' => TRUE,
+        'object default' => array(),
+      ),
+    ),
+    'primary key' => array('sid'),
+    'unique keys' => array(
+      'style_type_name' => array('name'),
+    ),
+    'indexes' => array(
+      'style_type_style_type' => array('object_type'),
+      'style_type_title' => array('title'),
+    ),
+  );
+
+  return $schema;
+}

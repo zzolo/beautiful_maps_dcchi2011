@@ -1,0 +1,149 @@
+<?php
+
+/**
+ * @file
+ * Main module file for the Mapping Example module.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function mapping_example_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#mapping_example':
+      return '<p>' . t('Provides an example module to test and provide instruction for the Mapping architectural framework module.') . '</p>';
+
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function hook_permission() {
+  return array(
+    'access mapping example page' =>  array(
+      'title' => t('Access mapping example page'),
+      'description' => t('The Mapping Example page is place to see the examples is action.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mapping_example_menu() {
+  $items['mapping_example'] = array(
+    'title' => 'Mapping Example Page',
+    'page callback' => 'mapping_example_page',
+    'access arguments' => array('access mapping example page'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Menu callback for Mapping Example page.
+ */
+function mapping_example_page() {
+  $output = '';
+  
+  $output .= '<a href="http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html">Google Styled Map Wizard</a><br />';
+  $output .= mapping_render('mapping_example_google_map_example');
+  
+  return $output;
+}
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function mapping_example_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'mapping' && !empty($plugin)) {
+    return 'plugins/' . $plugin;
+  }
+}
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function mapping_example_ctools_plugin_api($module, $api) {
+  if ($module == "mapping") {
+    switch ($api) {
+      case 'mapping_maps':
+        return array('version' => 1);
+        
+      case 'mapping_map_types':
+        return array('version' => 1);
+        
+      case 'mapping_layers':
+        return array('version' => 1);
+        
+      case 'mapping_layer_types':
+        return array('version' => 1);
+        
+      case 'mapping_styles':
+        return array('version' => 1);
+        
+      case 'mapping_style_types':
+        return array('version' => 1);
+        
+      case 'mapping_behaviors':
+        return array('version' => 1);
+
+    }
+  }
+}
+
+/**
+ * Implements hook_mapping_maps().
+ */
+function mapping_example_mapping_maps() {
+  $maps = array();
+  
+  // This is an example map export for the example Google
+  // map type provided with this module.
+  $map = new stdClass();
+  $map->api_version = 1;
+  $map->name = 'mapping_example_google_map_example';
+  $map->title = t('Google Map (Example)');
+  $map->description = t('This is an example map using the Mapping framework.');
+  $map->object_type = 'mapping_example_google_map_type';
+  $map->layers = array(
+    'mapping_example_google_terrain_layer' => array(),
+  );
+  $map->styles = array(
+    // 'mapping_example_google_marker_style' => array(),
+  );
+  $map->behaviors = array(
+    // 'mapping_example_google_control_behavior' => array(),
+  );
+  $map->data = array(
+    'center' => array(0, 0),
+    'width' => 'auto',
+    'height' => '300px',
+  );
+  $maps[$map->name] = $map;
+  
+  return $maps;
+}
+
+/**
+ * Implements hook_mapping_layers().
+ */
+function mapping_example_mapping_layers() {
+  $layers = array();
+  
+  // This is an example layer export for the example Google
+  // map type provided with this module.
+  $layer = new stdClass();
+  $layer->api_version = 1;
+  $layer->name = 'mapping_example_google_terrain_layer';
+  $layer->title = t('Google Terrain');
+  $layer->description = t('Example Google Terrain layer');
+  $layer->object_type = 'mapping_example_google_type';
+  $layer->data = array(
+    
+  );
+  $layers[$layer->name] = $layer;
+  
+  return $layers;
+}

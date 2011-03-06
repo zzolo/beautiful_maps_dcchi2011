@@ -1,0 +1,14 @@
+name = "Mapping"
+description = "A common architecture and API for modules that build maps."
+package = "Mapping"
+core = 7.x
+dependencies[] = ctools
+
+; Files
+files[] = mapping.module
+files[] = mapping.install
+files[] = includes/mapping.helpful.inc
+files[] = includes/classes/mapping.base_type.inc
+files[] = includes/classes/mapping.map_type.inc
+files[] = includes/classes/mapping.layer_type.inc
+files[] = includes/classes/mapping.style_type.inc

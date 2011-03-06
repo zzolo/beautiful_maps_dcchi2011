@@ -1,0 +1,8 @@
+name = "Mapping Example"
+description = "An example module for the Mapping architectural framework module.  This module is only for testing and instructional purpose."
+package = "Mapping"
+core = 7.x
+dependencies[] = mapping
+
+; Files
+files[] = mapping_example.module
