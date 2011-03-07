@@ -1,0 +1,482 @@
+<?php
+
+/**
+ * @file
+ * Main module file for the mapping module.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function mapping_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#mapping':
+      return '<p>' . t('The Mapping module provides an architectural framework to build (geographical) mapping modules.') . '</p>';
+
+  }
+}
+
+/**
+ * Implements hook_ctools_plugin_type().
+ * 
+ * This lets ctools knows about the plugins that
+ * are implemented for this module.  See the following
+ * directory for default classes: includes/classes
+ */
+function mapping_ctools_plugin_type() {
+  return array(
+    'mapping_map_types' => array(),
+    'mapping_layer_types' => array(),
+    'mapping_style_types' => array(),
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function mapping_theme($existing, $type, $theme, $path) {
+  return array(
+    'mapping_map_output' => array(
+      'variables' => array(
+        'map' => NULL,
+      ),
+    ),
+  );
+}
+
+/**
+ * Render map.
+ *
+ * Given map id, render the map and its related
+ * objects.
+ */
+function mapping_render($map_id = NULL, $reset = FALSE) {
+  $ids = &drupal_static(__FUNCTION__, array(), $reset);
+  $output = '';
+  
+  $map = mapping_load_map($map_id);
+  if (empty($map)) {
+    // Log
+    return $output;
+  }
+  
+  // Render map
+  $map->render();
+  
+  // Render layers
+  if (is_array($map->layers)) {
+    foreach ($map->layers as $k => $layer) {
+      $map->layers[$k] = mapping_load_layer($k, $map);
+    }
+  }
+  
+  // Render layers
+  if (is_array($map->layers)) {
+    foreach ($map->layers as $k => $layer) {
+      $map->layers[$k] = mapping_load_layer($k, $map);
+    }
+  }
+  
+  // Render styles
+  if (is_array($map->styles)) {
+    foreach ($map->styles as $k => $style) {
+      $map->styles[$k] = mapping_load_style($k, $map);
+    }
+  }
+  
+  // Render behaviors
+  if (is_array($map->behaviors)) {
+    foreach ($map->behaviors as $k => $layer) {
+      $map->behaviors[$k] = mapping_load_behavior($k, $behavior, $map);
+    }
+  }
+  
+  // Create ID.  ID's are needed if the same map gets
+  // rendered more than once on a page and for referencing
+  // the correct HTML div for rendering map.  Otherwise
+  // classes can be used to style things appropriately.
+  if (!isset($ids[$map->name])) {
+    $ids[$map->name] = 0;
+  }
+  $map->id = $map->name . '-' . (string) $ids[$map->name];
+  $ids[$map->name]++;
+  
+  // Add hooks here for map providers or other modules to
+  // alter the object.
+  
+  // Send to JS
+  drupal_add_js(drupal_get_path('module', 'mapping') . '/mapping.js');
+  
+  // This throws a warning about recursion in json_encode().  Could be
+  // this: http://blog.jezmckean.com/php-bug-json_encode-misleading-warning-on-object-with-private-properties/
+  drupal_add_js(array(
+    'mapping' => array(
+      'maps' => array(
+        $map->id => $map,
+      ),
+    ),
+  ), 'setting');
+  
+  // Render HTML
+  
+  // Different maps might have different ways of creating the
+  // HTML needed for their maps.  Maybe some sort of
+  // $map->theme_function.
+  $output .= theme('mapping_map_output', array('map' => $map));
+  return $output;
+}
+
+/**
+ * Theme function for map output.
+ */
+function theme_mapping_map_output($vars) {
+  extract($vars);
+  $output = '';
+  $height = (isset($map->data['height'])) ? $map->data['height'] : '200px';
+  $width = (isset($map->data['width'])) ? $map->data['width'] : '200px';
+
+  $output .= '
+    <div id="' . $map->id . '" class="' . $map->name . ' ' . $map->object_type . ' mapping-map" style="height: ' . $height . '; width:' . $width . ';"></div>
+  ';
+  
+  return $output;
+}
+
+/**
+ * Get export objects.
+ *
+ * An abstracted function to get exports easily.
+ *
+ * @param $type
+ *   String name for type of object to get.
+ * @param $load
+ *   How to load objects.  The following values will work:
+ *     - 'all': All objects.
+ *     - 'names': $args will be array of names.
+ *     - 'conditions': $args will be an array of conditions.
+ *       Specifically we can use 'map_type' => 'example'.
+ *   See $type param in ctools_export_load_object().
+ * @param $args
+ *   Array of names to get specific objects.
+ *   See $args param in ctools_export_load_object().
+ * @param $reset
+ *   Boolean on whethere to reset cache or not.
+ *
+ * @return
+ *   Array of exports.
+ */
+function mapping_get_exports($object_type = 'maps', $load = 'all', $args = array(), $reset = FALSE) {
+  ctools_include('export');
+  $object_type = 'mapping_' . $object_type;
+
+  if ($reset) {
+    ctools_export_load_object_reset($object_type);
+  }
+  return ctools_export_load_object($object_type, $load, $args);
+}
+
+/**
+ * Get plugin info.
+ *
+ * An abstracted function to get information on plugins.
+ *
+ * @param $type
+ *   String name for type of object to get.
+ * @param $names
+ *   String name of plugin.
+ * @param $reset
+ *   Boolean whether to reset cached info.
+ *
+ * @return
+ *   Array of plugin info.
+ */
+function mapping_get_plugins($object_type = 'maps', $name = NULL, $reset = FALSE) {
+  ctools_include('export');
+  $object_type = 'mapping_' . $object_type;
+  $plugins = &drupal_static(__FUNCTION__, array(), $reset);
+
+  if (!isset($plugins[$object_type])) {
+    $plugins[$object_type] = ctools_get_plugins('mapping', $object_type);
+  }
+  
+  if (!empty($name) && !empty($plugins[$object_type][$name])) {
+    return $plugins[$object_type][$name];
+  }
+  return $plugins[$object_type];
+}
+
+/**
+ * Load an Export.
+ *
+ * An abstracted function to load an export with
+ * its appropriate plugin.
+ *
+ * @param $type
+ *   String name of object type (in singular form).
+ * @param $name
+ *   String name for type of object to get.
+ * @param $map
+ *   Map object/array to pass along (not necessary).
+ * @param $reset
+ *   Boolean whether to reset cached info.
+ *
+ * @return
+ *   Loaded object.
+ */
+function mapping_load_object($object_type = 'map', $name = NULL, $map = NULL, $reset = FALSE) {
+  ctools_include('export');
+  $empty = new stdClass();
+  $export_type = $object_type . 's';
+  $plugin_type = $object_type . '_types';
+  $class_type = $object_type . '_type';
+  $loaded = &drupal_static(__FUNCTION__, array(), $reset);
+
+  if (!isset($loaded[$object_type][$name])) {
+    // Get export
+    $export = mapping_get_exports($export_type, 'names', array($name), $reset);
+    $export = $export[$name];
+    if (!is_object($export) || empty($export->object_type)) {
+      $loaded[$object_type][$name] = $empty;
+    }
+
+    // Get plugin
+    $plugin = mapping_get_plugins($plugin_type, $export->object_type, $reset);
+    if (empty($plugin)) {
+      $loaded[$object_type][$name] = $empty;
+    }
+    $plugin_class = ctools_plugin_get_class($plugin, $class_type);
+    $loaded[$object_type][$name] = new $plugin_class($export, $map);
+  }
+  
+  return isset($loaded[$object_type][$name]) ? $loaded[$object_type][$name] : $empty;
+}
+
+/**
+ * Retrieve map data exports.
+ *
+ * @param $map_type
+ *   Type of map to retrieve, leave NULL to retrieve all.
+ * @param $reset
+ *   Boolean on whethere to reset cache or not.
+ *
+ * @return
+ *   Array of exports.
+ */
+function mapping_maps_export($map_type = NULL, $reset = FALSE) {
+  if (!empty($map_type)) {
+    return mapping_get_exports($type = 'maps', 'conditions', array('map_type', $map_type), $reset); 
+  }
+  else {
+    return mapping_get_exports($type = 'maps', 'all', array(), $reset);
+  }
+}
+
+/**
+ * Retrieve specific map data export.
+ *
+ * @param $name
+ *   Name of map export to retrieve.
+ * @param $reset
+ *   Boolean on whethere to reset cache or not.
+ *
+ * @return
+ *   Array of exports.
+ */
+function mapping_map_export($name, $reset = FALSE) {
+  return mapping_get_exports($type = 'maps', 'names', array($name), $reset);
+}
+
+/**
+ * Retrieve layer data exports.
+ *
+ * @param $layer_type
+ *   Type of layer to retrieve, leave NULL to retrieve all.
+ * @param $reset
+ *   Boolean on whethere to reset cache or not.
+ *
+ * @return
+ *   Array of exports.
+ */
+function mapping_layers_export($layer_type = NULL, $reset = FALSE) {
+  if (!empty($layer_type)) {
+    return mapping_get_exports($type = 'layers', 'conditions', array('layer_type' => $layer_type), $reset); 
+  }
+  else {
+    return mapping_get_exports($type = 'layers', 'all', array(), $reset);
+  }
+}
+
+/**
+ * Retrieve specific layer data export.
+ *
+ * @param $name
+ *   Name of layer export to retrieve.
+ * @param $reset
+ *   Boolean on whethere to reset cache or not.
+ *
+ * @return
+ *   Array of exports.
+ */
+function mapping_layer_export($name, $reset = FALSE) {
+  return mapping_get_exports($type = 'layers', 'names', array($name), $reset);
+}
+
+/**
+ * Retrieve style data exports.
+ *
+ * @param $style_type
+ *   Type of style to retrieve, leave NULL to retrieve all.
+ * @param $reset
+ *   Boolean on whethere to reset cache or not.
+ *
+ * @return
+ *   Array of exports.
+ */
+function mapping_styles_export($style_type = NULL, $reset = FALSE) {
+  if (!empty($style_type)) {
+    return mapping_get_exports($type = 'styles', 'conditions', array('style_type' => $style_type), $reset); 
+  }
+  else {
+    return mapping_get_exports($type = 'styles', 'all', array(), $reset);
+  }
+}
+
+/**
+ * Retrieve specific style data export.
+ *
+ * @param $name
+ *   Name of style export to retrieve.
+ * @param $reset
+ *   Boolean on whethere to reset cache or not.
+ *
+ * @return
+ *   Array of exports.
+ */
+function mapping_style_export($name, $reset = FALSE) {
+  return mapping_get_exports($type = 'styles', 'names', array($name), $reset);
+}
+
+/**
+ * Retrieve map types plugin info.  Provide
+ * a name for a specific plugin if desired.
+ *
+ * @param $name
+ *   Specific plugin name to retrieve
+ * @param $reset
+ *   Boolean whether to reset cached info.
+ * @return
+ *   Array of map type plugin info.
+ */
+function mapping_map_types_info($name = NULL, $reset = FALSE) {
+  return mapping_get_plugins('map_types', $name, $reset);
+}
+
+/**
+ * Retrieve layer types plugin info.  Provide
+ * a name for a specific plugin if desired.
+ *
+ * @param $name
+ *   Specific plugin name to retrieve
+ * @param $reset
+ *   Boolean whether to reset cached info.
+ * @return
+ *   Array of layer type plugin info.
+ */
+function mapping_layer_types_info($name = NULL, $reset = FALSE) {
+  return mapping_get_plugins('layer_types', $name, $reset);
+}
+
+/**
+ * Retrieve style types plugin info.  Provide
+ * a name for a specific plugin if desired.
+ *
+ * @param $name
+ *   Specific plugin name to retrieve
+ * @param $reset
+ *   Boolean whether to reset cached info.
+ * @return
+ *   Array of style type plugin info.
+ */
+function mapping_style_types_info($name = NULL, $reset = FALSE) {
+  return mapping_get_plugins('style_types', $name, $reset);
+}
+
+/**
+ * Retrieve behavior plugin info.  Provide
+ * a name for a specific plugin if desired.
+ *
+ * @param $name
+ *   Specific plugin name to retrieve
+ * @param $reset
+ *   Boolean whether to reset cached info.
+ * @return
+ *   Array of style type plugin info.
+ */
+function mapping_behaviors_info($name = NULL, $reset = FALSE) {
+  return mapping_get_plugins('behaviors', $name, $reset);
+}
+
+/**
+ * Load behavior
+ */
+function mapping_load_behavior($name = NULL, $options = array(), $map = NULL, $reset = FALSE) {
+  ctools_include('export');
+  $empty = new stdClass();
+  
+  // Get plugin
+  $plugin = mapping_get_plugins('behaviors', $name, $reset);
+  if (empty($plugin)) {
+    return $empty;
+  }
+  $plugin_class = ctools_plugin_get_class($plugin, $class_type);
+  return new $plugin_class($options, $map);
+}
+
+/**
+ * Load a map, given export.
+ *
+ * @param $name
+ *   String name for type of object to get.
+ * @param $reset
+ *   Boolean whether to reset cached info.
+ *
+ * @return
+ *   Array of plugin info.
+ */
+function mapping_load_map($name = NULL, $reset = FALSE) {
+  return mapping_load_object('map', $name, NULL, $reset);
+}
+
+/**
+ * Load a layer, given export.
+ *
+ * @param $name
+ *   String name for type of object to get.
+ * @param $map
+ *   Map object/array to pass along (not necessary).
+ * @param $reset
+ *   Boolean whether to reset cached info.
+ *
+ * @return
+ *   Array of plugin info.
+ */
+function mapping_load_layer($name = NULL, $map = NULL, $reset = FALSE) {
+  return mapping_load_object('layer', $name, $map, $reset);
+}
+
+/**
+ * Load a style, given export.
+ *
+ * @param $name
+ *   String name for type of object to get.
+ * @param $map
+ *   Map object/array to pass along (not necessary).
+ * @param $reset
+ *   Boolean whether to reset cached info.
+ *
+ * @return
+ *   Array of plugin info.
+ */
+function mapping_load_style($name = NULL, $map = NULL, $reset = FALSE) {
+  return mapping_load_object('style', $name, $map, $reset);
+}
