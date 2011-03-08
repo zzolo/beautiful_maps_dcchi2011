@@ -8,6 +8,18 @@ function beautifulmapsdemo_openlayers_layers() {
   $openlayers_layers = new stdClass;
   $openlayers_layers->disabled = FALSE; /* Edit this to true to make a default openlayers_layers disabled initially */
   $openlayers_layers->api_version = 1;
+  $openlayers_layers->name = 'cloudmade_demo';
+  $openlayers_layers->title = 'Cloudmade demo';
+  $openlayers_layers->description = 'Cloudmade demo layer with night vision';
+  $openlayers_layers->data = array(
+    'styleId' => '2402',
+    'layer_type' => 'openlayers_layer_type_cloudmade',
+  );
+
+  $export['cloudmade_demo'] = $openlayers_layers;
+  $openlayers_layers = new stdClass;
+  $openlayers_layers->disabled = FALSE; /* Edit this to true to make a default openlayers_layers disabled initially */
+  $openlayers_layers->api_version = 1;
   $openlayers_layers->name = 'mapbox_world_dark';
   $openlayers_layers->title = 'Mapbox World Dark';
   $openlayers_layers->description = 'Mapbox World Dark';

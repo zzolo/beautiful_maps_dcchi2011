@@ -145,6 +145,20 @@ function beautifulmapsdemo_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'openlayers_layers_cloudmade_api';
+  $strongarm->value = '8fccdaba4a9c4430b6bbc5ff73589931';
+
+  $export['openlayers_layers_cloudmade_api'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'openlayers_layers_cloudmade_js';
+  $strongarm->value = 'sites/all/libraries/cloudmade.js';
+
+  $export['openlayers_layers_cloudmade_js'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'openlayers_source';
   $strongarm->value = 'http://openlayers.org/api/2.9/OpenLayers.js';
 
