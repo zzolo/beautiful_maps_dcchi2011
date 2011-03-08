@@ -494,7 +494,7 @@ function beautifulmapsdemo_views_default_views() {
   $handler->override_option('title', 'OpenLayers Plus Demo');
   $handler->override_option('style_plugin', 'openlayers_map');
   $handler->override_option('style_options', array(
-    'preset' => 'cloudmade_demo',
+    'preset' => 'openlayersplus_demo',
   ));
   $handler->override_option('path', 'openlayersplus');
   $handler->override_option('menu', array(
