@@ -309,7 +309,7 @@
           </div>
           <h2>Advanced Coding</h2>
           <ul>
-            <li>Digging deep into customizing maps.</li>
+            <li><img src="images/binary_heart.jpg" />Digging deep into customizing maps.</li>
           </ul>
         </div>
         
@@ -319,7 +319,7 @@
             <span class="??">?</span>
           </div>
           <h2>Extend GMap</h2>
-          <pre class="brush: js; highlight: [1]">
+          <pre class="brush: js;">
 Drupal.gmap.addHandler('gmap', function (elem) {
   var obj = this;
   // Bind a click
@@ -338,6 +338,48 @@ Drupal.gmap.addHandler('gmap', function (elem) {
           </pre>
         </div>
         
+        <!-- Alan -->
+        <div class="slide">
+          <div class="demo-links">
+            <span class="??">?</span>
+          </div>
+          <h2>OpenLayers Behaviors</h2>
+          <pre class="brush: js;">
+Drupal.behaviors.openlayers_behavior_attribution = function(context) {
+  var data = $(context).data('openlayers');
+  if (data && data.map.behaviors['openlayers_behavior_attribution']) {
+    // Add control
+    var control = new OpenLayers.Control.Attribution();
+    data.openlayers.addControl(control);
+    control.activate();
+  }
+}
+          </pre>
+        </div>
+        
+        <!-- Alan -->
+        <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
+          <h2>AJAX Popup</h2>
+          <ul>
+            <li><img src="images/sheltercentre-ajax-popup.png" width="500px" />Send ID to OpenLayers, then AJAX to get full content.</li>
+            <li>Example from <a href="http://sheltercentre.org/">sheltercentre.org</a></li>
+          </ul>
+        </div>
+        
+        <!-- Alan -->
+        <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
+          <h2>Radius Select</h2>
+          <ul>
+            <li><img src="images/zagat-radius-select.png" width="500px" />Select an area to do a search.</li>
+            <li>Example from <a href="http://www.zagat.com/">zagat.com</a></li>
+          </ul>
+        </div>
        
         <!-- UP AND COMING: THE FUTURE -->
         <!-- Alan -->
@@ -450,6 +492,7 @@ Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
             <li>http://www.walking-uk.com/images/tube_map.gif</li>
             <li>http://wiki.openstreetmap.org/wiki/File:Tilemill_screenshot.png</li>
             <li>http://pugetsoundblogs.com/archive_photos/bremerton_archive_photos/tom-myspace.jpg</li>
+            <li>http://imgs.xkcd.com/comics/binary_heart.jpg</li>
           </ul>
         </div>
         
