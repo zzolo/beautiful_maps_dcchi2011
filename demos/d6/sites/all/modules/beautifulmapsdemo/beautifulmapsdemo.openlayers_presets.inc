@@ -73,6 +73,59 @@ function beautifulmapsdemo_openlayers_presets() {
   $openlayers_presets = new stdClass;
   $openlayers_presets->disabled = FALSE; /* Edit this to true to make a default openlayers_presets disabled initially */
   $openlayers_presets->api_version = 1;
+  $openlayers_presets->name = 'demo_image_path';
+  $openlayers_presets->title = 'Demo for Image Path';
+  $openlayers_presets->description = 'Demo for how the image path settings can work';
+  $openlayers_presets->data = array(
+    'width' => 'auto',
+    'height' => '400px',
+    'image_path' => 'http://js.mapbox.com/theme/dark/',
+    'css_path' => '',
+    'proxy_host' => '',
+    'hide_empty_map' => 0,
+    'center' => array(
+      'initial' => array(
+        'centerpoint' => '0,0',
+        'zoom' => '2',
+      ),
+      'restrict' => array(
+        'restrictextent' => 0,
+        'restrictedExtent' => '',
+      ),
+    ),
+    'behaviors' => array(
+      'openlayers_behavior_attribution' => array(),
+      'openlayers_behavior_keyboarddefaults' => array(),
+      'openlayers_behavior_layerswitcher' => array(
+        'ascending' => 1,
+        'roundedCorner' => 1,
+        'roundedCornerColor' => 'darkblue',
+      ),
+      'openlayers_behavior_navigation' => array(
+        'zoomWheelEnabled' => 1,
+      ),
+      'openlayers_behavior_panzoombar' => array(),
+    ),
+    'default_layer' => 'osm_mapnik',
+    'layers' => array(
+      'osm_mapnik' => 'osm_mapnik',
+    ),
+    'layer_styles' => array(),
+    'layer_activated' => array(),
+    'layer_switcher' => array(),
+    'projection' => '900913',
+    'displayProjection' => '4326',
+    'styles' => array(
+      'default' => 'demo_attr_replace',
+      'select' => 'demo_attr_replace',
+      'temporary' => 'demo_attr_replace',
+    ),
+  );
+
+  $export['demo_image_path'] = $openlayers_presets;
+  $openlayers_presets = new stdClass;
+  $openlayers_presets->disabled = FALSE; /* Edit this to true to make a default openlayers_presets disabled initially */
+  $openlayers_presets->api_version = 1;
   $openlayers_presets->name = 'mapbox_demo';
   $openlayers_presets->title = 'Mapbox Demo';
   $openlayers_presets->description = 'Demo of MapBox Layer and openlayers plus behaviors';
