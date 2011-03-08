@@ -195,6 +195,26 @@ function beautifulmapsdemo_views_default_views() {
     'weight' => 0,
     'name' => 'navigation',
   ));
+  $handler = $view->new_display('page', 'Page', 'page_2');
+  $handler->override_option('title', 'Image Path');
+  $handler->override_option('style_options', array(
+    'preset' => 'demo_image_path',
+  ));
+  $handler->override_option('path', 'demo_image_path');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
 
   $views[$view->name] = $view;
 

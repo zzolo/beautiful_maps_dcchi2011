@@ -273,10 +273,11 @@
         <div class="slide">
           <div class="demo-links">
             <span class="alan">a</span>
+            <a href="demos/d6/demo_image_path">Demo</a>
           </div>
           <h2>OpenLayers Themes</h2>
           <ul>
-            <li>Custom image sets</li>
+            <li><img src="images/demo-ol-image-path.png" width="575px" />Custom image sets</li>
             <li>Custom CSS</li>
           </ul>
         </div>
@@ -288,7 +289,9 @@
           </div>
           <h2>Theming GMap Popups</h2>
           <ul>
-            <li>How this works ....</li>
+            <li><img src="images/greenmap-gmap-custom-popup.png" width="500px" />Views level theming.</li>
+            <li>Provided theming functions.</li>
+            <li>Example from <a href="http://opengreenmap.org/">opengreenmap.org</a>.</li>
           </ul>
         </div>
 
@@ -299,7 +302,8 @@
           </div>
           <h2>Theming OpenLayers Popups</h2>
           <ul>
-            <li>How this works ....</li>
+            <li><img src="images/preventobesity-custom-popup.png" />Views level theming.</li>
+            <li>Example from <a href="http://www.preventobesity.net/map">preventobesity.net</a></li>
           </ul>
         </div>
 
@@ -311,10 +315,75 @@
           </div>
           <h2>Advanced Coding</h2>
           <ul>
-            <li>Digging deep into customizing maps.</li>
-            
-            <li>OpenLayers behavior overrides</li>
-            <li>Adding GMap "behaviors".  Don't know how to this at the moment ...</li>
+            <li><img src="images/binary_heart.jpg" />Digging deep into customizing maps.</li>
+          </ul>
+        </div>
+        
+        <!-- Alan -->
+        <div class="slide">
+          <div class="demo-links">
+            <span class="??">?</span>
+          </div>
+          <h2>Extend GMap</h2>
+          <pre class="brush: js;">
+Drupal.gmap.addHandler('gmap', function (elem) {
+  var obj = this;
+  // Bind a click
+  var binding = obj.bind("locpickchange", function () {
+    if (obj.locpick_coord) {
+      // ...
+    }
+  });
+  // Bind an init
+  obj.bind("init", function () {
+    if (obj.vars.behavior.locpick) {
+      // ...
+    }
+  }
+}
+          </pre>
+        </div>
+        
+        <!-- Alan -->
+        <div class="slide">
+          <div class="demo-links">
+            <span class="??">?</span>
+          </div>
+          <h2>OpenLayers Behaviors</h2>
+          <pre class="brush: js;">
+Drupal.behaviors.openlayers_behavior_attribution = function(context) {
+  var data = $(context).data('openlayers');
+  if (data && data.map.behaviors['openlayers_behavior_attribution']) {
+    // Add control
+    var control = new OpenLayers.Control.Attribution();
+    data.openlayers.addControl(control);
+    control.activate();
+  }
+}
+          </pre>
+        </div>
+        
+        <!-- Alan -->
+        <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
+          <h2>AJAX Popup</h2>
+          <ul>
+            <li><img src="images/sheltercentre-ajax-popup.png" width="500px" />Send ID to OpenLayers, then AJAX to get full content.</li>
+            <li>Example from <a href="http://sheltercentre.org/">sheltercentre.org</a></li>
+          </ul>
+        </div>
+        
+        <!-- Alan -->
+        <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
+          <h2>Radius Select</h2>
+          <ul>
+            <li><img src="images/zagat-radius-select.png" width="500px" />Select an area to do a search.</li>
+            <li>Example from <a href="http://www.zagat.com/">zagat.com</a></li>
           </ul>
         </div>
        
@@ -429,6 +498,7 @@ Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
             <li>http://www.walking-uk.com/images/tube_map.gif</li>
             <li>http://wiki.openstreetmap.org/wiki/File:Tilemill_screenshot.png</li>
             <li>http://pugetsoundblogs.com/archive_photos/bremerton_archive_photos/tom-myspace.jpg</li>
+            <li>http://imgs.xkcd.com/comics/binary_heart.jpg</li>
           </ul>
         </div>
         
