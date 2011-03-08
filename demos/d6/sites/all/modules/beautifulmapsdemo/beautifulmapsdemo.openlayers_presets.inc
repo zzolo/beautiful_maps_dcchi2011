@@ -85,8 +85,8 @@ function beautifulmapsdemo_openlayers_presets() {
     'hide_empty_map' => 0,
     'center' => array(
       'initial' => array(
-        'centerpoint' => '-23.016357420964, 43.933505943129',
-        'zoom' => '1',
+        'centerpoint' => '-23.016357420964, 27.493654052689',
+        'zoom' => '2',
       ),
       'restrict' => array(
         'restrictextent' => 0,
@@ -100,6 +100,10 @@ function beautifulmapsdemo_openlayers_presets() {
         'zoomWheelEnabled' => 1,
       ),
       'openlayers_behavior_panzoombar' => array(),
+      'openlayers_behavior_zoomtolayer' => array(
+        'zoomtolayer' => 'mapbox_world_dark',
+        'point_zoom_level' => '5',
+      ),
       'openlayers_plus_behavior_blockswitcher' => array(
         'map' => array(
           'enabled' => 1,
