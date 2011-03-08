@@ -310,11 +310,34 @@
           <h2>Advanced Coding</h2>
           <ul>
             <li>Digging deep into customizing maps.</li>
-            
-            <li>OpenLayers behavior overrides</li>
-            <li>Adding GMap "behaviors".  Don't know how to this at the moment ...</li>
           </ul>
         </div>
+        
+        <!-- Alan -->
+        <div class="slide">
+          <div class="demo-links">
+            <span class="??">?</span>
+          </div>
+          <h2>Extend GMap</h2>
+          <pre class="brush: js; highlight: [1]">
+Drupal.gmap.addHandler('gmap', function (elem) {
+  var obj = this;
+  // Bind a click
+  var binding = obj.bind("locpickchange", function () {
+    if (obj.locpick_coord) {
+      // ...
+    }
+  });
+  // Bind an init
+  obj.bind("init", function () {
+    if (obj.vars.behavior.locpick) {
+      // ...
+    }
+  }
+}
+          </pre>
+        </div>
+        
        
         <!-- UP AND COMING: THE FUTURE -->
         <!-- Alan -->
