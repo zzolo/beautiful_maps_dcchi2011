@@ -336,6 +336,47 @@ function beautifulmapsdemo_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'field_attendance_value' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'label_type' => 'none',
+      'format' => 'default',
+      'multiple' => array(
+        'group' => TRUE,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => FALSE,
+      ),
+      'exclude' => 1,
+      'id' => 'field_attendance_value',
+      'table' => 'node_data_field_attendance',
+      'field' => 'field_attendance_value',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('filters', array(
     'status' => array(
@@ -497,6 +538,27 @@ function beautifulmapsdemo_views_default_views() {
     'preset' => 'openlayersplus_demo',
   ));
   $handler->override_option('path', 'openlayersplus');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler = $view->new_display('page', 'Page', 'page_4');
+  $handler->override_option('title', 'OpenLayers Demo');
+  $handler->override_option('style_plugin', 'openlayers_map');
+  $handler->override_option('style_options', array(
+    'preset' => 'openlayers_demo',
+  ));
+  $handler->override_option('path', 'openlayers');
   $handler->override_option('menu', array(
     'type' => 'none',
     'title' => '',

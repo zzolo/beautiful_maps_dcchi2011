@@ -130,6 +130,56 @@ function beautifulmapsdemo_content_default_fields() {
     ),
   );
 
+  // Exported field: field_attendance
+  $fields['poi-field_attendance'] = array(
+    'field_name' => 'field_attendance',
+    'type_name' => 'poi',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '0',
+    'max_length' => '',
+    'allowed_values' => '',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'rows' => 5,
+      'size' => '8',
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+          '_error_element' => 'default_value_widget][field_attendance][0][value',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Attendance',
+      'weight' => '-2',
+      'description' => '',
+      'type' => 'text_textfield',
+      'module' => 'text',
+    ),
+  );
+
   // Exported field: field_location
   $fields['poi-field_location'] = array(
     'field_name' => 'field_location',
@@ -241,6 +291,7 @@ World Cup',
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Attendance');
   t('Color');
   t('Event Type');
   t('Location');

@@ -292,6 +292,86 @@ function beautifulmapsdemo_openlayers_presets() {
   $openlayers_presets = new stdClass;
   $openlayers_presets->disabled = FALSE; /* Edit this to true to make a default openlayers_presets disabled initially */
   $openlayers_presets->api_version = 1;
+  $openlayers_presets->name = 'openlayers_demo';
+  $openlayers_presets->title = 'OpenLayers Demo';
+  $openlayers_presets->description = 'Demo of OpenLayers Basic Styling';
+  $openlayers_presets->data = array(
+    'width' => 'auto',
+    'height' => '400px',
+    'image_path' => '',
+    'css_path' => 'http://openlayers.org/api/theme/default/style.css',
+    'proxy_host' => '',
+    'hide_empty_map' => 0,
+    'center' => array(
+      'initial' => array(
+        'centerpoint' => '-1.9226074218058, 27.493654052692',
+        'zoom' => '2',
+      ),
+      'restrict' => array(
+        'restrictextent' => 0,
+        'restrictedExtent' => '',
+      ),
+    ),
+    'behaviors' => array(
+      'openlayers_behavior_attribution' => array(),
+      'openlayers_behavior_popup' => array(
+        'layers' => array(
+          'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
+          'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
+        ),
+      ),
+      'openlayers_behavior_fullscreen' => array(
+        'activated' => 1,
+      ),
+      'openlayers_behavior_keyboarddefaults' => array(),
+      'openlayers_behavior_layerswitcher' => array(
+        'ascending' => 1,
+        'roundedCorner' => 1,
+        'roundedCornerColor' => 'darkblue',
+      ),
+      'openlayers_behavior_navigation' => array(
+        'zoomWheelEnabled' => 1,
+      ),
+      'openlayers_behavior_panzoombar' => array(),
+    ),
+    'default_layer' => 'osm_mapnik',
+    'layers' => array(
+      'osm_mapnik' => 'osm_mapnik',
+      'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
+      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
+    ),
+    'layer_styles' => array(
+      'mapbox_demo_openlayers_1' => array(
+        'default' => 'drupalcon',
+        'select' => 'drupalcon',
+        'temporary' => 'drupalcon',
+      ),
+      'mapbox_demo_openlayers_2' => array(
+        'default' => 'openlayersred',
+        'select' => 'openlayersblue',
+        'temporary' => 'openlayersblue',
+      ),
+    ),
+    'layer_activated' => array(
+      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
+    ),
+    'layer_switcher' => array(
+      'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
+      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
+    ),
+    'projection' => '900913',
+    'displayProjection' => '4326',
+    'styles' => array(
+      'default' => 'airport',
+      'select' => 'airport',
+      'temporary' => 'airport',
+    ),
+  );
+
+  $export['openlayers_demo'] = $openlayers_presets;
+  $openlayers_presets = new stdClass;
+  $openlayers_presets->disabled = FALSE; /* Edit this to true to make a default openlayers_presets disabled initially */
+  $openlayers_presets->api_version = 1;
   $openlayers_presets->name = 'openlayersplus_demo';
   $openlayers_presets->title = 'OpenLayers Plus Demo';
   $openlayers_presets->description = 'Demo of OpenLayers Layer and openlayers plus behaviors';
@@ -323,13 +403,30 @@ function beautifulmapsdemo_openlayers_presets() {
         ),
       ),
       'openlayers_plus_behavior_permalink' => array(),
+      'openlayers_plus_behavior_scalepoints' => array(
+        'min' => array(
+          'value' => '0',
+          'pointRadius' => '5',
+          'fillOpacity' => '',
+          'strokeWidth' => '',
+        ),
+        'max' => array(
+          'value' => '',
+          'pointRadius' => '20',
+          'fillOpacity' => '',
+          'strokeWidth' => '',
+        ),
+        'method' => 'area',
+        'distinct' => '5',
+        'fields' => 'field_attendance',
+        'min_label' => '-1',
+      ),
       'openlayers_plus_behavior_popup' => array(),
     ),
     'default_layer' => 'mapbox_world_dark',
     'layers' => array(
       'mapbox_world_dark' => 'mapbox_world_dark',
       'osm_mapnik' => 'osm_mapnik',
-      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
       'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
     ),
     'layer_styles' => array(
@@ -345,11 +442,9 @@ function beautifulmapsdemo_openlayers_presets() {
       ),
     ),
     'layer_activated' => array(
-      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
       'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
     ),
     'layer_switcher' => array(
-      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
       'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
     ),
     'projection' => '900913',
