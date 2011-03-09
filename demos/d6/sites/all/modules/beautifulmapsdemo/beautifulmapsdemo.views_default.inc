@@ -469,6 +469,48 @@ function beautifulmapsdemo_views_default_views() {
     'weight' => 0,
     'name' => 'navigation',
   ));
+  $handler = $view->new_display('page', 'Page', 'page_2');
+  $handler->override_option('title', 'Cloudmade Demo');
+  $handler->override_option('style_plugin', 'openlayers_map');
+  $handler->override_option('style_options', array(
+    'preset' => 'cloudmade_demo',
+  ));
+  $handler->override_option('path', 'cloudmade');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler = $view->new_display('page', 'Page', 'page_3');
+  $handler->override_option('title', 'OpenLayers Plus Demo');
+  $handler->override_option('style_plugin', 'openlayers_map');
+  $handler->override_option('style_options', array(
+    'preset' => 'openlayersplus_demo',
+  ));
+  $handler->override_option('path', 'openlayersplus');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
   $handler = $view->new_display('openlayers', 'OpenLayers Data Football', 'openlayers_2');
   $handler->override_option('filters', array(
     'status' => array(
