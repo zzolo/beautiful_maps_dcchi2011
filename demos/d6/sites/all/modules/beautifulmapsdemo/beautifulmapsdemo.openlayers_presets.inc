@@ -292,6 +292,84 @@ function beautifulmapsdemo_openlayers_presets() {
   $openlayers_presets = new stdClass;
   $openlayers_presets->disabled = FALSE; /* Edit this to true to make a default openlayers_presets disabled initially */
   $openlayers_presets->api_version = 1;
+  $openlayers_presets->name = 'openlayers_demo';
+  $openlayers_presets->title = 'OpenLayers Demo';
+  $openlayers_presets->description = 'Demo of OpenLayers Basic Styling';
+  $openlayers_presets->data = array(
+    'width' => 'auto',
+    'height' => '400px',
+    'image_path' => '',
+    'css_path' => 'http://openlayers.org/api/theme/default/style.css',
+    'proxy_host' => '',
+    'hide_empty_map' => 0,
+    'center' => array(
+      'initial' => array(
+        'centerpoint' => '-23.016357420964, 27.493654052689',
+        'zoom' => '2',
+      ),
+      'restrict' => array(
+        'restrictextent' => 0,
+        'restrictedExtent' => '',
+      ),
+    ),
+    'behaviors' => array(
+      'openlayers_behavior_attribution' => array(),
+      'openlayers_behavior_keyboarddefaults' => array(),
+      'openlayers_behavior_navigation' => array(
+        'zoomWheelEnabled' => 1,
+      ),
+      'openlayers_behavior_panzoombar' => array(),
+      'openlayers_behavior_zoomtolayer' => array(
+        'zoomtolayer' => 'osm_mapnik',
+        'point_zoom_level' => '5',
+      ),
+      'openlayers_plus_behavior_blockswitcher' => array(
+        'map' => array(
+          'enabled' => 1,
+          'open' => 0,
+          'overlay_style' => 'checkbox',
+          'position' => 'se',
+        ),
+      ),
+    ),
+    'default_layer' => 'osm_mapnik',
+    'layers' => array(
+      'osm_mapnik' => 'osm_mapnik',
+      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
+    ),
+    'layer_styles' => array(
+      'mapbox_demo_openlayers_2' => array(
+        'default' => 'openlayersred',
+        'select' => 'openlayersblue',
+        'temporary' => 'openlayersblue',
+      ),
+      'mapbox_demo_openlayers_1' => array(
+        'default' => 'drupalcon',
+        'select' => 'drupalcon',
+        'temporary' => 'drupalcon',
+      ),
+    ),
+    'layer_activated' => array(
+      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
+      'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
+    ),
+    'layer_switcher' => array(
+      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
+      'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
+    ),
+    'projection' => '900913',
+    'displayProjection' => '4326',
+    'styles' => array(
+      'default' => 'airport',
+      'select' => 'airport',
+      'temporary' => 'airport',
+    ),
+  );
+
+  $export['openlayers_demo'] = $openlayers_presets;
+  $openlayers_presets = new stdClass;
+  $openlayers_presets->disabled = FALSE; /* Edit this to true to make a default openlayers_presets disabled initially */
+  $openlayers_presets->api_version = 1;
   $openlayers_presets->name = 'openlayersplus_demo';
   $openlayers_presets->title = 'OpenLayers Plus Demo';
   $openlayers_presets->description = 'Demo of OpenLayers Layer and openlayers plus behaviors';
