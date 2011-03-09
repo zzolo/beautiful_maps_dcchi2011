@@ -323,13 +323,30 @@ function beautifulmapsdemo_openlayers_presets() {
         ),
       ),
       'openlayers_plus_behavior_permalink' => array(),
+      'openlayers_plus_behavior_scalepoints' => array(
+        'min' => array(
+          'value' => '0',
+          'pointRadius' => '5',
+          'fillOpacity' => '',
+          'strokeWidth' => '',
+        ),
+        'max' => array(
+          'value' => '',
+          'pointRadius' => '20',
+          'fillOpacity' => '',
+          'strokeWidth' => '',
+        ),
+        'method' => 'area',
+        'distinct' => '5',
+        'fields' => 'field_attendance',
+        'min_label' => '-1',
+      ),
       'openlayers_plus_behavior_popup' => array(),
     ),
     'default_layer' => 'mapbox_world_dark',
     'layers' => array(
       'mapbox_world_dark' => 'mapbox_world_dark',
       'osm_mapnik' => 'osm_mapnik',
-      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
       'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
     ),
     'layer_styles' => array(
@@ -345,11 +362,9 @@ function beautifulmapsdemo_openlayers_presets() {
       ),
     ),
     'layer_activated' => array(
-      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
       'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
     ),
     'layer_switcher' => array(
-      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
       'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
     ),
     'projection' => '900913',
