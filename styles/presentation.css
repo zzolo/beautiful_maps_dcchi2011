@@ -114,7 +114,7 @@ label { font-weight: bold; }
 .nav-pager li, .nav-prev-next li { border: none; float: left; padding: 0; }
 .nav-pager a, .nav-prev-next a { display: block; line-height: 12px; }
 .nav-pager { bottom: 0; left: 20px; }
-.nav-pager li { margin-right: 10px; }
+.nav-pager li { margin-right: 10px; display: none; }
 .nav-pager a, .nav-prev-next a { background: #FF7AE4; color: rgba(26,31,30,0.5); padding: 6px 3px; text-decoration: none; }
 .nav-pager .current a, .nav-prev-next a:hover { background: #FF3DD8; color: #FFFFFF; }
 .nav-prev-next { right: 20px; top: 0; }
