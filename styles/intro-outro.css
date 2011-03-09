@@ -1,0 +1,15 @@
+/**
+ * for intro and outro
+ */
+body.intro {
+  background: transparent url('../images/intro.png') top left no-repeat;
+}
+body.outro {
+  background: transparent url('../images/outro.png') top left no-repeat;
+}
+
+body.intro a, body.intro a:visited {
+  font-weight: bold;
+  color: #000000;
+  float: right;
+}

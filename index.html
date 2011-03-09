@@ -2,7 +2,7 @@
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="no-js"> 
   <head>
-    <title>Drupal OpenLayers Presentation (DrupalCon Copenhagen 2010)</title>
+    <title>Making Beautiful Maps in Drupal (DrupalCon Chicago 2011)</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <link href="styles/presentation.css" type="text/css" rel="stylesheet" media="Screen,projection" />
     <link href="js/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
@@ -428,8 +428,21 @@ Drupal.behaviors.openlayers_behavior_attribution = function(context) {
           </div>
           <h2>Connect the Dots</h2>
           <ul>
-            <li><img src="images/newplaymap-line-connect.png" width="500px" />Created a path when clicked.</li>
-            <li>Example from <a href="https://http://newplaymap.org/">newplaymap.org</a></li>
+            <li>Created a path when clicked.  Example from <a href="http://newplaymap.org/">newplaymap.org</a></li>
+          </ul>
+          <img src="images/newplaymap-line-connect.png" width="630px" />
+        </div>
+        
+        <!-- Alan -->
+        <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
+          <h2>Combining it All</h2>
+          <ul>
+            <li><img src="images/chmi-plus.png" width="500px" />Searching, Legends, Custom tooltips.</li>
+            <li>OpenLayers Plus</li>
+            <li>Example from <a href="http://healthmarketinnovations.org/">healthmarketinnovations.org</a></li>
           </ul>
         </div>
        
@@ -491,31 +504,6 @@ Drupal.behaviors.openlayers_behavior_attribution = function(context) {
         <!-- Alan -->
         <div class="slide">
           <div class="demo-links">
-            <span class="??">?</span>
-          </div>
-          <h2>Code Example</h2>
-          <pre class="brush: js; highlight: [1]">
-Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
-  var fullscreenPanel;
-  var data = $(context).data('openlayers');
-  if (data && data.map.behaviors['openlayers_behavior_fullscreen']) {
-    var opts = data.map.behaviors['openlayers_behavior_fullscreen'];
-    
-    // Create new panel control and add.
-    fullscreenPanel = new OpenLayers.Control.Panel(
-      {
-        displayClass: 'openlayers_behavior_fullscreen_button_panel'
-      }
-    );
-    data.openlayers.addControl(fullscreenPanel);
-  }
-}
-          </pre>
-        </div>
- 
-        <!-- Alan -->
-        <div class="slide">
-          <div class="demo-links">
             <span class="alan">a</span>
           </div>
           <h2>Credits</h2>
@@ -554,10 +542,22 @@ Drupal.behaviors.openlayers_behavior_fullscreen = function(context) {
           <div class="demo-links">
             <span class="alan">a</span>
           </div>
-          <h2>Geospatial BoF's</h2>
+          <h2>Continue the discussion</h2>
           <ul>
-            <li>Drupal Geospatial Support BoF.</li>
-            <li>Drupal Geospatial Developers BoF.</li>
+            <li>Geospatial sprinting on Friday.</li>
+            <li><a href="http://groups.drupal.org/location-and-mapping">Location and Mapping</a> Drupal Group.</li>
+            <li>Module issue queues.</li>
+          </ul>
+        </div>
+        
+        <!-- Alan -->
+        <div class="slide">
+          <div class="demo-links">
+            <span class="alan">a</span>
+          </div>
+          <h2>Thank you</h2>
+          <ul>
+            <li><a href="outro.html">thanks</a></li>
           </ul>
         </div>
     </div>
