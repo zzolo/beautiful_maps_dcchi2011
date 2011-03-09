@@ -304,7 +304,7 @@ function beautifulmapsdemo_openlayers_presets() {
     'hide_empty_map' => 0,
     'center' => array(
       'initial' => array(
-        'centerpoint' => '-23.016357420964, 27.493654052689',
+        'centerpoint' => '-1.9226074218058, 27.493654052692',
         'zoom' => '2',
       ),
       'restrict' => array(
@@ -314,48 +314,50 @@ function beautifulmapsdemo_openlayers_presets() {
     ),
     'behaviors' => array(
       'openlayers_behavior_attribution' => array(),
+      'openlayers_behavior_popup' => array(
+        'layers' => array(
+          'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
+          'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
+        ),
+      ),
+      'openlayers_behavior_fullscreen' => array(
+        'activated' => 1,
+      ),
       'openlayers_behavior_keyboarddefaults' => array(),
+      'openlayers_behavior_layerswitcher' => array(
+        'ascending' => 1,
+        'roundedCorner' => 1,
+        'roundedCornerColor' => 'darkblue',
+      ),
       'openlayers_behavior_navigation' => array(
         'zoomWheelEnabled' => 1,
       ),
       'openlayers_behavior_panzoombar' => array(),
-      'openlayers_behavior_zoomtolayer' => array(
-        'zoomtolayer' => 'osm_mapnik',
-        'point_zoom_level' => '5',
-      ),
-      'openlayers_plus_behavior_blockswitcher' => array(
-        'map' => array(
-          'enabled' => 1,
-          'open' => 0,
-          'overlay_style' => 'checkbox',
-          'position' => 'se',
-        ),
-      ),
     ),
     'default_layer' => 'osm_mapnik',
     'layers' => array(
       'osm_mapnik' => 'osm_mapnik',
+      'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
       'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
     ),
     'layer_styles' => array(
-      'mapbox_demo_openlayers_2' => array(
-        'default' => 'openlayersred',
-        'select' => 'openlayersblue',
-        'temporary' => 'openlayersblue',
-      ),
       'mapbox_demo_openlayers_1' => array(
         'default' => 'drupalcon',
         'select' => 'drupalcon',
         'temporary' => 'drupalcon',
       ),
+      'mapbox_demo_openlayers_2' => array(
+        'default' => 'openlayersred',
+        'select' => 'openlayersblue',
+        'temporary' => 'openlayersblue',
+      ),
     ),
     'layer_activated' => array(
       'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
-      'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
     ),
     'layer_switcher' => array(
-      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
       'mapbox_demo_openlayers_1' => 'mapbox_demo_openlayers_1',
+      'mapbox_demo_openlayers_2' => 'mapbox_demo_openlayers_2',
     ),
     'projection' => '900913',
     'displayProjection' => '4326',

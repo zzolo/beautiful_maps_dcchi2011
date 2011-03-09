@@ -71,7 +71,7 @@ function beautifulmapsdemo_openlayers_styles() {
   $openlayers_styles->title = 'OpenLayers Red';
   $openlayers_styles->description = 'A red style for point data';
   $openlayers_styles->data = array(
-    'pointRadius' => 20,
+    'pointRadius' => 10,
     'fillColor' => '#660000',
     'strokeColor' => '#660000',
     'strokeWidth' => 4,
