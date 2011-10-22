@@ -59,7 +59,7 @@ h3 {
 a, a:link { text-decoration: underline; }
 a:hover { text-decoration: none; }
 a:active, a, a:visited, a:hover {
-  color: #FF3300;
+  color: #E0FF66;
 }
 h1 a, h1 a:active, h1 a:visited, h1 a:hover {
   color: #BBBBBB;
@@ -179,4 +179,19 @@ label { font-weight: bold; }
   font-family: "Andale Mono";
   margin-right: 4px;
   font-size: .7em;
+}
+
+/**
+ * General
+ */
+.center {
+  text-align: center;
+}
+
+.right {
+  float: right;
+}
+
+.image-width {
+  max-width: 600px;
 }
