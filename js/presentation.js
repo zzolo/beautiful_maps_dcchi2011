@@ -6,6 +6,7 @@
 var presentationFor = 'BAD Camp 2011';
 var showAlan = true;
 var showThomas = false;
+var continueDiscussion = false;
  
 $(document).ready(function(){
   // What is this presentation for.
@@ -17,6 +18,9 @@ $(document).ready(function(){
   }
   if (!showThomas) {
     $('.slide-thomas').remove();
+  }
+  if (!continueDiscussion) {
+    $('.continue-discussion').remove();
   }
   
   // Presentation
